@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.1.0
+@version        0.1.1
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -10,1484 +10,1535 @@
 
 @-moz-document domain("itslearning.com") {
     
-/*====================
- * Colors
- *==================== */
-:root {
-    --color_black: #000000;
-    --color_background_00dp: #191919;
-    --color_background_01dp: #222222;
-    --color_background_02dp: #262626;
-    --color_background_03dp: #282828;
-    --color_background_04dp: #2A2A2A;
-    --color_background_06dp: #2F2F2F;
-    --color_background_08dp: #303030;
-    --color_background_12dp: #353535;
-    --color_background_16dp: #363636;
-    --color_background_24dp: #393939;
+    /*====================
+     * Colors
+     *==================== */
+    :root {
+        --color_black: #000000;
+        --color_background_00dp: #191919;
+        --color_background_01dp: #222222;
+        --color_background_02dp: #262626;
+        --color_background_03dp: #282828;
+        --color_background_04dp: #2A2A2A;
+        --color_background_06dp: #2F2F2F;
+        --color_background_08dp: #303030;
+        --color_background_12dp: #353535;
+        --color_background_16dp: #363636;
+        --color_background_24dp: #393939;
+        
+        --color_primary: #393939;
+        --color_primary_light: #5e5e5e;
+        --color_primary_dark: #2f2f2f;
+        
+        --color_text: #ffffff;
+        --color_text_dark: #dcdcdc;
+        --color_anchor: rgb(40, 149, 255);
+        --color_focus: rgb(4, 67, 128);
+        
+        --color_overlay: rgba(255, 255, 255, 0.1);
+        --color_seperator: var(--color_overlay);
+        --color_overlay_hover: var(--color_overlay);
+        --color_overlay_info: rgba(40, 149, 255, 0.1);
+        
+        --color_background_header: var(--color_background_12dp);
+        --color_background_header_course: var(--color_background_08dp);
+        --color_background_dropdown: var(--color_background_08dp);
+        
+        --color_button: var(--color_background_08dp);
+        --color_button_active: var(--color_background_12dp);
+        --color_card: var(--color_background_04dp);
+        --color_input_box: rgba(255, 255, 255, 0.1);
+    }
     
-    --color_primary: #393939;
-    --color_primary_light: #5e5e5e;
-    --color_primary_dark: #2f2f2f;
     
-    --color_text: #ffffff;
-    --color_text_dark: #dcdcdc;
-    --color_anchor: rgb(40, 149, 255);
-    --color_focus: rgb(4, 67, 128);
+    /*====================
+     * General elements
+     *==================== */
+    a, a:active, a:focus, a:hover, a:link, a:visited,
+    .h-color-link-default {
+        color: var(--color_anchor);
+    }
     
-    --color_overlay: rgba(255, 255, 255, 0.1);
-    --color_seperator: var(--color_overlay);
-    --color_overlay_hover: var(--color_overlay);
-    --color_overlay_info: rgba(40, 149, 255, 0.1);
+    .h-color-grey {
+        color: var(--color_text_dark) !important;
+    }
     
-    --color_background_header: var(--color_background_12dp);
-    --color_background_header_course: var(--color_background_08dp);
-    --color_background_dropdown: var(--color_background_08dp);
+    .h-inactive {
+        color: var(--color_text_dark) !important;
+    }
     
-    --color_button: var(--color_background_08dp);
-    --color_button_active: var(--color_background_12dp);
-    --color_card: var(--color_background_04dp);
-    --color_input_box: rgba(255, 255, 255, 0.1);
-}
-
-
-/*====================
- * General elements
- *==================== */
-a, a:active, a:focus, a:hover, a:link, a:visited,
-.h-color-link-default {
-    color: var(--color_anchor);
-}
-
-.h-color-grey {
-    color: var(--color_text_dark) !important;
-}
-
-.h-inactive {
-    color: var(--color_text_dark) !important;
-}
-
-h2, h1 {
-    color: var(--color_text);
-}
-
-.u-color-gray, .u-color-grey {
-    color: var(--color_text_dark);
-}
-
-hr {
-    border-color: var(--color_seperator);
-}
-
-/* card header text */
-.itsl-cb-stream-item-header,
-.il-widget-titleBlock > h2 {
-    color: var(--color_text);
-}
-/* card content text */
-.itsl-light-bulletins-list-item-text {
-    color: var(--color_text_dark);
-}
-/* card timestamp text */
-.itsl-cb-stream-item-timestamp {
-    color: var(--color_text_dark);
-}
-
-/* show more seperator line */
-.ccl-textexpander-line {
-    border-color: var(--color_seperator);
-}
-
-/* link less focus */
-a.h-less-focus, a.h-less-focus:link, a.h-less-focus:visited, a.h-less-focus:active, input[type="button"].h-less-focus, input[type="button"].h-less-focus:link, input[type="button"].h-less-focus:visited, input[type="button"].h-less-focus:active, button[type="button"].h-less-focus, button[type="button"].h-less-focus:link, button[type="button"].h-less-focus:visited, button[type="button"].h-less-focus:active {
-    color: var(--color_text_dark) !important;
-}
-/* link less focus hover */
-a.h-less-focus:hover, input[type="button"].h-less-focus:hover, button[type="button"].h-less-focus:hover {
-    color: var(--color_anchor) !important;
-}
-
-/* form table */
-.itsl-formbox {
-    background: var(--color_card);
-    border: none;
-    box-shadow: none;
-}
-
-/* info header */
-.ccl-feedback-tip {
-    background-color: var(--color_overlay_info);
-    color: var(--color_text);
-}
-
-/* feedback header */
-.ccl-feedback-functionality {
-    background-color: var(--color_card);
-    color: var(--color_text_dark);
-}
-/* .. icon */
-.ccl-feedback-functionality > .ili.ili-info-circle {
-    color: var(--color_text_dark);
-}
-
-/* select box */
-select,
-.formtable table tr td select {
-    background-color: var(--color_background_dropdown);
-    border-color: var(--color_seperator);
-    color: var(--color_text);
-}
-select > option,
-.formtable table tr td select > option {
-    background-color: var(--color_background_dropdown);
-    color: var(--color_text);
-}
-
-/* button */
-.ccl-button-color-grey, a.ccl-button-color-grey, a.ccl-button-color-grey:active, a.ccl-button-color-grey:link, a.ccl-button-color-grey:visited {
-    color: var(--color_text_dark);
-}
-
-/* dialog */
-.dialog.svelte-5w1cwx {
-    background-color: var(--color_background_08dp);
-}
-
-/* search field */
-.l-topmenu-searchbox .ccl-searchtextbox-personalmenu input {
-    background-color: var(--color_input_box);
-    border-color: var(--color_seperator) !important;
-}
-
-
-/*====================
- * Common Dropdown menu
- *==================== */
-/* Dropdown menus */
-.ccl-dropdownmenu,
-.c-dropdownMenu__all,
-.c-dropdownMenu__navigation .c-dropdown,
-.c-dropdownMenu__navigation {
-    background-color: var(--color_background_dropdown);
-    border-color: var(--color_seperator);
-}
-/* dropdown arrow */
-.ccl-context-dialog.bottom > .ccl-context-dialog-arrow::after {
-    border-bottom-color: var(--color_background_dropdown) !important;
-}
-.l-menu-course .ccl-dropdownmenu .ccl-context-dialog-arrow, .l-menu-project .ccl-dropdownmenu .ccl-context-dialog-arrow, .l-menu-yourchildren .ccl-dropdownmenu .ccl-context-dialog-arrow {
-    border-bottom-color: var(--color_background_dropdown) !important;
-}
-
-/* dropdown menu selected */
-.ccl-dropdownmenu-selected {
-    background-color: var(--color_button_active);
-}
-/* dropdown menu hover */
-.ccl-dropdownmenu:not(.ccl-dropdownmenu-modern) > ul > li:focus, .ccl-dropdownmenu:not(.ccl-dropdownmenu-modern) > ul > li:hover {
-    background-color: var(--color_overlay_hover);
-}
-/* dropdown menu border seperator */
-.ccl-dropdownmenu > ul > li:not(.h-is-mobile) ~ li {
-    border-color: var(--color_seperator);
-}
-
-/* dropdown element */
-.ccl-dropdownmenu.ccl-dropdownmenu-modern {
-    border: none;
-}
-/* dropdown menu text */
-.ccl-dropdownmenu.ccl-dropdownmenu-modern > ul > li {
-    color: var(--color_text);
-}
-/* dropdown menu button item */
-.ccl-dropdownmenu.ccl-dropdownmenu-modern > ul > li > button {
-    background-color: var(--color_background_dropdown);
-}
-/* dropdown menu button item hover */
-.ccl-dropdownmenu.ccl-dropdownmenu-modern > ul > li > button:focus, .ccl-dropdownmenu.ccl-dropdownmenu-modern > ul > li > button:hover,
-.ccl-dropdownmenu > ul > li:focus, .ccl-dropdownmenu > ul > li:hover {
-    background-color: var(--color_button_active);
-}
-
-/* dropdown element badge */
-.itsl-counter-badge-grey {
-    background-color: var(--color_overlay);
-    border-color: var(--color_seperator);
-    color: var(--color_text);
-}
-
-/* text area */
-textarea {
-    background-color: var(--color_input_box);
-    border: none;
-}
-
-/* form header */
-.ccl-formcontainer h2.ccl-formsection-titleheader {
-    color: var(--color_text);
-}
-
-
-/*====================
- * Login page
- *==================== */
-.itsl-login .itsl-widget, .itsl-welcome .itsl-widget {
-    background-color: var(--color_card);
-    border: none;
-}
-
-/* School name */
-.itsl-login .itsl-login-container, .itsl-login .itsl-login-container-pincode {
-    color: var(--color_text);
-}
-
-/* username & password field */
-.itsl-login .its-login-input-container input {
-    background-color: var(--color_input_box);
-    border: none;
-}
-/* Login button */
-.itsl-login .its-login-input-container input[type=submit] {
-    background-color: #007E33;
-}
-.itsl-login .its-login-input-container input[type=submit]:hover {
-    background-color: #009d40;
-}
-
-
-/*====================
- * Main page (Aktuelles)
- *==================== */
-body,
-.itsl-homepagetabs-wrapper,
-.itsl-updatestab-wrapper,
-.coursecards {
-    background: var(--color_background_00dp) !important;
-    color: var(--color_text);
-}
-
-/* Header buttons (Kurse & Updates) */
-.itsl-homepagetabs-tab > span {
-    background-color: var(--color_button);
-    border: none;
-}
-.itsl-homepagetabs-tab:not(.active):hover > span {
-    background-color: var(--color_primary_light);
-}
-/* active header button */
-.itsl-homepagetabs-tab.active > span, .itsl-homepagetabs-tab:active > span {
-    background-color: var(--color_primary);
-    color: var(--color_text);
-}
-
-/* Updates Cards */
-body:not(.l-group-dashboard) .il-widget.itsl-cb-news .itsl-widget-content-ul > li, .il-widget.itsl-cb-stream .itsl-widget-content-ul > li {
-    background-color: var(--color_card);
-    border: none !important;
-}
-/* 'show more' shadow */
-.ccl-textexpander-container[data-collapsed]::before,
-.itsl-cb-planner .ccl-textexpander-container[data-collapsed]::before {
-    background: linear-gradient(to bottom,rgba(0,0,0,0),var(--color_card));
-}
-
-/* Updates tasks (Aufgaben) card */
-.itsl-homepagetabs .il-widget.itsl-cb-tasks2 .tasklist2_container {
-    background-color: var(--color_card);
-}
-.tasklist__emptystate {
-    color: var(--color_text);
-}
-
-/* Updates events (Ereignisse) card */
-.itsl-updatestab-wrapper .itsl-cb-activities .itsl-widget-toolbar,
-.itsl-updatestab-wrapper .il-widgetzone-wideleft-right .il-widget-bottom {
-    background-color: var(--color_card);
-    color: var(--color_text);
-}
-/* events timestamps */
-.itsl-cb-activities .itsl-dashboard-event .itsl-dashboard-time-range {
-    color: var(--color_anchor);
-}
-/* events seperator */
-ul.itsl-widget-content-ul > li {
-    border-color: var(--color_seperator);
-}
-
-
-/*====================
- * Header (nav bar)
- *==================== */
-nav.l-main-menu ul, nav.l-personal-menu,
-nav.l-main-menu li.active a:not(.ccl-button):visited {
-    background-color: var(--color_background_header);
-}
-/* header hover color */
-ul.l-main-menu-items > li > a:hover, ul.l-more-menu > li > button:hover,
-nav.l-main-menu li.active button:not(.ccl-button):hover {
-    background-color: var(--color_overlay_hover);
-}
-
-/* dropdown list item */
-.l-menu-course .ccl-dropdownmenu > div > ul > li,
-.l-menu-project .ccl-dropdownmenu > div > ul > li {
-    background-color: var(--color_background_dropdown);
-}
-.l-menu-course .ccl-dropdownmenu > div > ul > li:hover,
-.l-menu-project .ccl-dropdownmenu > div > ul > li:hover {
-    background-color: var(--color_overlay_hover);
-}
-
-/* dropdown list item text */
-.l-menu-course .ccl-dropdownmenu .dropdown-menu-item, .l-menu-project .ccl-dropdownmenu .dropdown-menu-item, .l-menu-yourchildren .ccl-dropdownmenu .dropdown-menu-item {
-    color: var(--color_text) !important;
-}
-/* ..timestamp text */
-.l-menu-course .ccl-dropdownmenu .itsl-widget-extrainfo, .l-menu-project .ccl-dropdownmenu .itsl-widget-extrainfo, .l-menu-yourchildren .ccl-dropdownmenu .itsl-widget-extrainfo {
-    color: var(--color_text_dark);
-}
-
-/* Dropdown search box */
-.c-dropdownMenu__navigation .c-search input:valid {
-    background-color: var(--color_input_box);
-    border: none;
-}
-/* ... text placeholder color */
-.c-dropdownMenu__navigation .c-search > input::placeholder {
-    color: var(--color_text_dark);
-}
-/* ... text color */
-.c-dropdownMenu__navigation .c-search input {
-    color: var(--color_text);
-}
-
-/* Dropdown select box */
-.c-dropdownMenu__navigation .c-dropdown > select {
-    background-color: var(--color_input_box) !important;
-    border: none;
-    color: var(--color_text) !important;
-}
-/* ... select options */
-.c-dropdownMenu__navigation .c-dropdown > select > option {
-    background-color: var(--color_background_12dp) !important;
-}
-/* ... select arrow */
-.c-dropdownMenu__navigation .c-dropdown::after {
-    color: var(--color_text);
-}
-
-
-/*====================
- * Groups page
- *==================== */
-.l-modern-ui-dashboard.l-group-dashboard .il-widget {
-    background-color: var(--color_card);
-    border: none;
-}
-
-
-/*====================
- * All courses form
- *==================== */
-/* header text */
-.ccl-gridtoolbar .itemsleft .ccl-iconlink:not(.ccl-button), .ccl-gridtoolbar .itemsleft .ccl-iconlink:not(.ccl-button) span {
-    color: var(--color_text);
-}
-
-/* header select box */
-body:not(.h-android) .ccl-gridtoolbar .itemsleft select, body:not(.h-android) .ccl-gridtoolbar .itemsright select {
-    background-color: var(--color_input_box);
-    border: none;
-}
-
-/* Table */
-.tablelisting,
-.tablelisting table,
-.tablelisting table > tbody > tr > th {
-    background: var(--color_card);
-}
-/* table row hover */
-.tablelisting table tr:not(.assessment-record-table-nohover-background table tr):hover {
-    background: var(--color_overlay_hover);
-}
-/* table row selected */
-.tablelisting table .selected td {
-    background-color: var(--color_overlay_hover);
-}
-/* head backgrounds */
-.tablelisting table > tbody > tr > th {
-    background: var(--color_card);
-}
-/* head backgrounds hover & active */
-.tablelisting table th.th-sortable:hover, .tablelisting table th.th-sortable:hover a, .tablelisting table th.th-sortable:hover a:active, .tablelisting table th.th-sortable:hover a:focus, .tablelisting table th.th-sortable:hover a:hover, .tablelisting table th.th-sortable:hover a:link, .tablelisting table th.th-sortable:hover a:visited, .tablelisting table th.th-selected, .tablelisting table th.th-selected:hover, .tablelisting table th.th-selected:hover a, .tablelisting table th.th-selected:hover a:active, .tablelisting table th.th-selected:hover a:focus, .tablelisting table th.th-selected:hover a:hover, .tablelisting table th.th-selected:hover a:link, .tablelisting table th.th-selected:hover a:visited {
-    background: var(--color_button_active);
-}
-/* head text colors */
-.tablelisting table th a, .tablelisting table th a:active, .tablelisting table th a:focus, .tablelisting table th a:hover, .tablelisting table th a:link, .tablelisting table th a:visited,
-.tablelisting table tr th {
-    color: var(--color_text) !important;
-}
-/* row seperator */
-.tablelisting table tr > td, .tablelisting table tr > th {
-    border-color: var(--color_seperator) !important;
-}
-
-
-/*====================
- * Course page
- *==================== */
-/* course header (nav bar) */
-.l-main-content-header {
-    background-color: var(--color_background_header_course);
-}
-
-/* More Dropdown */
-#main-content-nav-more {
-    background-color: var(--color_background_08dp);
-}
-
-/* Tasks title color */
-.tasklist2_header > h2 {
-    color: var(--color_text);
-}
-/* switch buttons */
-.tasklist2_header > .buttons_wrapper > button {
+    h2, h1 {
         color: var(--color_text);
-}
-/* ... selected */
-.tasklist2_header > .buttons_wrapper > button.active > span, .tasklist2_header > .buttons_wrapper > button.focus > span {
-    color: var(--color_text);
-    border-bottom-color: var(--color_text);
-}
-/* tasks dropdown menu */
-.prom-collapsible-list__innerbutton {
-    background-color: var(--color_button) !important;
-}
-.prom-collapsible-list__button:hover .prom-collapsible-list__innerbutton {
-    background-color: var(--color_button_active) !important;
-}
-/* ... seperator */
-.prom-collapsible-list__buttonwrapper::before {
-    border-color: var(--color_button) !important;
-}
-/* ... text color */
-.prom-collapsible-list__buttontoggle,
-.prom-collapsible-list__buttontext {
-    color: var(--color_text_dark) !important;
-    border-color: var(--color_text_dark) !important;
-}
-/* ... counter */
-.prom-collapsible-list__buttoncounter {
-    background-color: var(--color_overlay) !important;
-    color: var(--color_text_dark) !important;
-}
-/* task cards */
-.tasklist2__task {
-    background-color: var(--color_card);
-    border-color: var(--color_card);
-}
-.tasklist2__taskitem:hover .tasklist2__task {
-    border-color: var(--color_seperator);
-}
-/* ... text */
-.tasklist2__task > span {
-    color: var(--color_text_dark);
-}
-/* ... status text */
-.tasklist2__extra {
-    color: var(--color_text_dark);
-}
-
-/* person name text color */
-.itsl-light-bulletins-person-name > a > span {
-    color: var(--color_text);
-}
-/* timestamp text color */
-.itsl-light-bulletins-timespan {
-    color: var(--color_text_dark);
-}
-
-/* Notification write card */
-body:not(.l-group-dashboard) .il-widget.itsl-cb-news .itsl-widget-content-ul > li.itsl-light-bulletins-new-item-listitem, .il-widget.itsl-cb-stream .itsl-widget-content-ul > li.itsl-light-bulletins-new-item-listitem {
-    background: var(--color_card);
-}
-/* text area */
-.ccl-text-input > textarea, .ccl-text-input > input[type="text"] {
-    border-color: var(--color_seperator);
-    background-color: var(--color_input_box);
-}
-/* add notification button */
-.ccl-button-color-green[disabled], a.ccl-button-color-green[disabled], a.ccl-button-color-green:active[disabled], a.ccl-button-color-green:link[disabled], a.ccl-button-color-green:visited[disabled] {
-    background-color: var(--color_button);
-    border-color: var(--color_seperator);
-    color: var(--color_text);
-}
-/* options dropdown */
-.itsl-light-bulletins-new-item-menu-targetlink {
-    color: var(--color_text_dark);
-}
-/* ... arrow */
-.itsl-light-bulletins-new-item-menu-targetlink > .h-arrow-down {
-    border-top-color: var(--color_text_dark);
-}
-/* resource button */
-.itsl-light-bulletin-attachmentbuttonlist > li > button {
-    color: var(--color_text_dark);
-}
-/* ... icon */
-.itsl-light-bulletin-attachmentbuttonlist > li > button > img {
-    filter: invert(80%);
-}
-
-/* Last changes cards */
-body:not(.l-group-dashboard) .itsl-cb-news .itsl-widget-content-ul > li, .itsl-cb-stream .itsl-widget-content-ul > li, .l-modern-ui-dashboard .itsl-cb-notifications .itsl-widget-content-ul > li {
-    background-color: var(--color_card);
-    border: none;
-}
-/* ... timestamp */
-.itsl-widget-extrainfo {
-    color: var(--color_text_dark);
-}
-
-/* active plan card */
-.itsl-cb-planner > .il-widget-bottom {
-    background-color: var(--color_card);
-    border: none !important;
+    }
     
-}
-/* ... title */
-.itsl-single-plan .itsl-single-plan-topic-title {
-    color: var(--color_text);
-}
-/* ... timestamp */
-.itsl-single-plan .itsl-plan-date .ili-calendar-o,
-.itsl-single-plan .itsl-plan-date .itsl-plan-date-text {
-    color: var(--color_text_dark);
-}
-/* ... resource card */
-.itsl-single-plan .itsl-single-plan-elements .itsl-single-plan-element, .itsl-single-plan .itsl-single-plan-homework-elements .itsl-single-plan-element {
-    background-color: var(--color_background_08dp);
-    border-color: var(--color_seperator);
-}
-.itsl-single-plan .itsl-single-plan-elements .itsl-single-plan-element:not(.itsl-single-plan-elements-inactive):hover, .itsl-single-plan .itsl-single-plan-homework-elements .itsl-single-plan-element:not(.itsl-single-plan-elements-inactive):hover {
-    border-color: var(--color_focus);
-}
-/* ... resource text */
-.itsl-single-plan .itsl-single-plan-elements .itsl-single-plan-element .itsl-single-plan-element-title, .itsl-single-plan .itsl-single-plan-homework-elements .itsl-single-plan-element .itsl-single-plan-element-title {
-    color: var(--color_text);
-}
-/* start button */
-.itsl-play-plan-button-container .ccl-button.ccl-button-primary.ccl-button-outline, .itsl-play-plan-button-container a.ccl-button.ccl-button-primary.ccl-button-outline {
-    border-color: var(--color_anchor);
-    color: var(--color_anchor);
-}
-.ccl-button-outline, a.ccl-button-outline {
-    background-color: var(--color_button);
-}
-/* plan text */
-.itsl-cb-planner > .il-widget-bottom {
-    color: var(--color_text_dark);
-}
-
-/* next page card */
-.itsl-widget-pager,
-.ccl-button-plain {
-    background-color: var(--color_card);
-}
-
-/* ----------
- * Plans page */
-/* plans card */
-.itsl-planner .itsl-topic .itsl-topic-content-container {
-    background-color: var(--color_card);
-    border: none;
-}
-/* ... lower card part */
-.itsl-planner .itsl-topic .itsl-topic-plans {
-    background-color: var(--color_card);
-    border: none;
-}
-/* .. seperator */
-.itsl-planner:not(.itsl-planner-no-topics) .itsl-topic-columns {
-    border-color: var(--color_seperator);
-}
-/* ... dropdown arrow */
-.itsl-planner .itsl-topic .itsl-topic-expander .itsl-topic-expander-link::before {
-    filter: invert(100%);
-}
-
-/* Table-List switch */
-a.ccl-multipleswitcher-button.active, a.ccl-multipleswitcher-button:hover {
-    background-color: var(--color_button_active);
-    border: none;
-}
-/* inactive */
-a.ccl-multipleswitcher-button {
-    background-color: var(--color_button);
-    border: none;
-}
-.ccl-gridtoolbar a {
-    color: var(--color_text_dark);
-}
-
-/* search box */
-.prom-input-field .prom-input-field__input {
-    background-color: var(--color_input_box);
-    border: none !important;
-    color: var(--color_text);
-}
-/* search result card */
-.ccl-responsivegrid .emptygridtext, .ccl-responsivegrid .gridtext {
-    background-color: var(--color_card);
-    border: none;
-}
-/* ... text color */
-.ccl-responsivegrid .emptygridtext, .ccl-responsivegrid .gridtext {
-    color: var(--color_text);
-}
-/* delete search button */
-.prom-button__secondary > .prom-button__text {
-    background-color: var(--color_button);
-    border: none;
-}
-.prom-button__secondary:hover > .prom-button__text {
-    background-color: var(--color_overlay_hover);
-}
-/* delete search button text */
-.prom-button__secondary > .prom-button__text {
-    color: var(--color_text);
-}
-
-/* menu button */
-.ccl-button-color-grey, a.ccl-button-color-grey, a.ccl-button-color-grey:active, a.ccl-button-color-grey:link, a.ccl-button-color-grey:visited {
-    background-color: var(--color_button);
-    border: none;
-}
-
-/* filter select box options background */
-body:not(.h-android) .ccl-gridtoolbar .itemsright select option,
-body:not(.h-android) .ccl-gridtoolbar .itemsright select optgroup {
-    background-color: var(--color_background_12dp) !important;
-}
-
-/* TABLE */
-/* plan table cell background */
-.itsl-planner .ccl-responsivegrid .tableview .gridcolumn {
-    background-color: var(--color_card);
-    border-color: var(--color_seperator);
-}
-/* resource text color */
-.itsl-planner .itsl-plan-elements .itsl-plan-elements-item-link {
-    color: var(--color_text_dark);
-}
-/* resource text color hover */
-.itsl-planner .itsl-plan-elements a.itsl-plan-elements-item-link:hover {
-    color: var(--color_anchor) !important;
-}
-
-/* LIST */
-.ccl-responsivegrid .defaultview .gridrow {
-    background-color: var(--color_card);
-}
-/* border color */
-.itsl-planner .ccl-responsivegrid .defaultview .gridrow {
-    border-color: var(--color_seperator);
-}
-/* titles color */
-.itsl-planner .ccl-responsivegrid .defaultview .gridrow,
-.itsl-planner .ccl-responsivegrid .itsl-plan-cell-title {
-    color: var(--color_text);
-}
-
-/* ----------
- * Resources page */
-/* side menu */
-.treemenu-viewport {
-    background-color: var(--color_background_01dp);
-    border: none;
-}
-/* side menu text color */
-.treemenu-viewport .ccl-treemenu.jstree a, .treemenu-viewport .ccl-treemenu.jstree li > span {
-    color: var(--color_text_dark);
-}
-/* ... clicked */
-.treemenu-viewport .ccl-treemenu a.jstree-clicked {
-    color: var(--color_anchor);
-}
-
-/* search box */
-.itsl-process-folder-search > .il-search-box > .il-search-textbox {
-    background-color: var(--color_input_box);
-    border: none;
-}
-/* search result dialog */
-.il-search + .il-search-liveresults {
-    background-color: var(--color_background_12dp);
-    border: none;
-}
-/* search result item */
-.il-search + .il-search-liveresults > div > a > .il-search-liveresult {
-    border-color: var(--color_seperator);
-}
-/* ... hover */
-.il-search + .il-search-liveresults > div:not(.il-search-liveresult-noresults) > a > .il-search-liveresult:hover {
-    background-color: var(--color_overlay_hover);
-}
-/* ... text color */
-.il-search + .il-search-liveresults > div > a > .il-search-liveresult > div > span {
-    color: var(--color_text);
-}
-.itsl-process-folder-description-path {
-    color: var(--color_text_dark);
-}
-
-/* search result bottom part */
-.il-search + .il-search-liveresults > .il-search-liveresults-showall {
-    border-color: var(--color_seperator);
-}
-
-/* TABLE */
-.ccl-grid .gridtable {
-    border-color: var(--color_seperator);
-}
-/* table head cell */
-.ccl-grid th {
-    background-color: var(--color_card);
-    color: var(--color_text);
-}
-/* ... hover */
-.ccl-grid .gridtable th.thsortable:hover, .ccl-grid .gridtable th.thsortable:hover a, .ccl-grid .gridtable th.thsortable:hover a:active, .ccl-grid .gridtable th.thsortable:hover a:focus, .ccl-grid .gridtable th.thsortable:hover a:hover, .ccl-grid .gridtable th.thsortable:hover a:link, .ccl-grid .gridtable th.thsortable:hover a:visited, .ccl-grid .gridtable th.thselected:hover, .ccl-grid .gridtable th.thselected:hover a, .ccl-grid .gridtable th.thselected:hover a:active, .ccl-grid .gridtable th.thselected:hover a:focus, .ccl-grid .gridtable th.thselected:hover a:hover, .ccl-grid .gridtable th.thselected:hover a:link, .ccl-grid .gridtable th.thselected:hover a:visited {
-    background-color: var(--color_button_active);
-}
-/* ... text color */
-.ccl-grid th a, .ccl-grid th a:link {
-    color: var(--color_text);
-}
-/* table body cell */
-.ccl-grid .gridtable tbody tr {
-    background-color: var(--color_card);
-}
-/* ... hover */
-.ccl-grid .gridtable tbody tr:hover, .ccl-grid .gridtable tbody tr.selectedrow {
-    background-color: var(--color_overlay_hover);
-}
-/* ... border */
-.ccl-grid .gridtable tbody td {
-    border-color: var(--color_seperator);
-}
-
-/* paginator selector */
-.ccl-pagination > li > a, .ccl-pagination > li > span {
-    background-color: var(--color_button);
-    border: none;
-}
-/* ... item text */
-.ccl-pagination > li > a, .ccl-pagination > li > span {
-    color: var(--color_text_dark);
-}
-/* ... selected */
-.ccl-pagination > li.selected > span {
-    background-color: var(--color_button_active);
-}
-/* ... next arrow */
-.ccl-pagination > li.previous-next > a {
-    color: var(--color_text);
-}
-
-/* items count text */
-.ccl-pager {
-    color: var(--color_text);
-}
-
-/* items count select box */
-.ccl-pager > .page-size-chooser > select {
-    background-color: var(--color_input_box);
-    border: none;
-}
-/* ... options background */
-.ccl-pager > .page-size-chooser > select option {
-    background-color: var(--color_background_12dp) !important;
-}
-
-/* Answer task text field */
-.cke_1.cke_chrome {
-    border-color: var(--color_seperator);
-}
-.cke_1 .cke_top,
-.cke_1 .cke_bottom {
-    background-image: linear-gradient(to bottom,var(--color_background_08dp),var(--color_background_08dp));
-    border-color: var(--color_seperator);
-    box-shadow: none;
-}
-a.cke_path_item, span.cke_path_empty {
-    text-shadow: none;
-}
-/* text options */
-.cke_1 .cke_combo_button,
-.cke_1 .cke_toolgroup {
-    border-color: var(--color_seperator);
-    background: var(--color_button);
-    box-shadow: none;
-}
-/* ... text */
-.cke_combo_text {
-    color: var(--color_text_dark);
-    text-shadow: none;
-}
-.cke_button_icon {
-    filter: invert(100%);
-}
-/* ... hover */
-.cke_1 a.cke_button_off:hover, .cke_1 a.cke_button_off:focus, .cke_1 a.cke_button_off:active {
-    background: var(--color_overlay_hover);
-}
-/* ... on */
-.cke_1 .cke_button_on {
-    background: var(--color_button_active);
-}
-/* font selector */
-.cke_1.cke_panel {
-    border: none;
-    background-color: var(--color_background_12dp);
-}
-/* ,,, hover */
-.cke_1 a.cke_combo_button:hover, .cke_1 a.cke_combo_button:focus, .cke_1 .cke_combo_on a.cke_combo_button {
-    background: var(--color_overlay_hover);
-    border-color: var(--color_seperator);
-}
-/* ... title */
-.cke_panel_grouptitle {
-    background: var(--color_background_00dp);
-    border-color: var(--color_seperator);
-    color: var(--color_text);
-    text-shadow: none;
-    box-shadow: none;
-}
-/* ... item */
-.cke_panel_listItem a {
-    border: none;
-}
-.cke_panel_listItem a:hover, .cke_panel_listItem a:focus, .cke_panel_listItem a:active {
-    border-color: var(--color_seperator);
-    background-color: var(--color_overlay_hover);
-}
-/* ... text */
-#ccl-uc-dropzone-text,
-.ccl-uc-dropzone-container .ili {
-    color: var(--color_text);
-}
-
-/* file drop zone */
-.ccl-uc-dropzone {
-    background-color: var(--color_background_12dp);
-}
-.ccl-uc-dropzone-container:hover .ccl-uc-dropzone {
-    background-color: var(--color_overlay_hover);
-}
-
-/* ----------
- * Status page */
-/* Nacharbeiten card */
-.categorybox {
-    background-color: var(--color_card);
-    border: none;
-}
-/* ... border top */
-.ilw-widget-color-blue::before, .ilw-widget-header-blue, .categorybox h2.skin, .section .sectionheader {
-    border-top-color: var(--color_card);
-}
-
-/* action card */
-.categorybox24 li, .categorybox48 li {
-    background-color: var(--color_card);
-    border-color: var(--color_card);
-}
-/* ... hover */
-.categorybox24 li:hover, .categorybox48 li:hover {
-    background-color: var(--color_background_03dp);
-    border-color: var(--color_seperator);
-}
-/* ,,, title */
-.categorybox a {
-    color: var(--color_text);
-}
-
-/* ----------
- * People page */
-/* tabs card */
-.tabsframe,
-.ccl-pagetabs .active, .ccl-pagetabs li.active a:hover {
-    background-color: var(--color_card);
-    border: none !important;
-    box-shadow: none;
-}
-/* tab text */
-.ccl-pagetabs li h2 {
-    color: var(--color_text);
-}
-/* inactive tab */
-ul.ccl-pagetabs li a:hover {
-    background-color: var(--color_overlay_hover);
-}
-/* inactive tab text */
-ul.ccl-pagetabs li a, ul.ccl-pagetabs li a:active, ul.ccl-pagetabs li a:visited, ul.ccl-pagetabs li a:hover {
-    color: var(--color_text_dark);
-}
-
-/* filter selector */
-div.checkbox-selector .switcher, .dropDownFilter .switcher {
-    color: var(--color_text_dark);
-}
-/* ... arrow */
-div.checkbox-selector .switcher > img, .dropDownFilter .switcher > img {
-    filter: invert(100%);
-}
-/* ... hover */
-.ccl-gridtoolbar .itemsright > li .checkbox-selector:hover .switcher, .ccl-gridtoolbar .itemsright > li .dropDownFilter:hover .switcher {
-    background-color: var(--color_overlay_hover);
-}
-/* ... options items */
-.toolbar .checkbox-selector > div, .checkbox-selector > div {
-    background-color: var(--color_background_12dp);
-    border: none;
-}
-
-/* Card list */
-/* admins card */
-.ccl-accordion-section {
-    background-color: var(--color_background_03dp);
-    border-color: var(--color_seperator);
-}
-/* card title */
-.ccl-accordion-section-header, .ccl-accordion-expanded-section-header, .ccl-accordion-unfoldable-section-header {
-    color: var(--color_text);
-}
-/* person card */
-.ccl-responsivegrid .cardview .gridrow .gridcolumn {
-    background-color: var(--color_background_12dp);
-}
-
-
-/*====================
- * Calendar page
- *==================== */
-/* Header bar */
-body.l-has-modernpagetabs .page-header-wrapper {
-    background-color: var(--color_background_header_course);
-}
-
-/* side bar text */
-.itsl-calendar-filter-bar label.itsl-selectable-color-item {
-    color: var(--color_text_dark);
-}
-/* my calendar title */
-.itsl-calendar-filter-bar > div > .ccl-expandable-container-expander > span {
-    color: var(--color_text);
-}
-/* hide sidebar button */
-.itsl-calendar-schedule-show-calendars-link > span, .ccl-gridtoolbar .itemsleft .ccl-iconlink.itsl-calendar-schedule-show-calendars-link:not(.ccl-button) > span {
-    color: var(--color_text);
-}
-/* ... icon */
-.itsl-calendar-schedule-show-calendars-link > img {
-    filter: invert(70%);
-}
-/* ... hover */
-.ccl-gridtoolbar .itemsleft > li:not(.disabled):hover a.ccl-iconlink:not(.ccl-button):not(.ccl-dropdownmenu-targetlink):enabled, .ccl-gridtoolbar .itemsleft > li:not(.disabled):hover button.ccl-iconbutton:not(.ccl-button):not(.ccl-dropdownmenu-targetlink):enabled {
-    background-color: var(--color_button);
-}
-/* sidebar dropdown arrow */
-.fc-list-day-item .expanded .itsl-calendar-expandable-arrow, .itsl-calendar-filter-bar .expanded .itsl-calendar-expandable-arrow,
-.itsl-calendar-filter-list-header > button > img {
-    filter: invert(100%);
-}
-
-/* search icon */
-.ccl-gridtoolbar ul.itemsleft > li > .ccl-iconlink > img {
-    filter: invert(70%);
-}
-
-/* show weekend checkbox */
-.ccl-checkbox-label {
-    color: var(--color_text_dark);
-}
-
-/* week switcher */
-a.itsl-calendar-nav-button,
-a.itsl-calendar-nav-button.disabled {
-    color: var(--color_text_dark);
-}
-
-/* current date title */
-.itsl-calendar-highlite-date {
-    color: var(--color_text);
-}
-
-/* time table */
-.fc-view thead,
-.fc .fc-week-number {
-    background-color: var(--color_card);
-}
-/* ... border color */
-.fc-widget-header, .fc-widget-content {
-    border-color: var(--color_seperator);
-}
-
-/* date dialog */
-.itsl-calendar-schedule-dialog.ccl-context-dialog {
-    background-color: var(--color_background_12dp);
-}
-/* ... dialog arrow right */
-.itsl-calendar-schedule-dialog.ccl-context-dialog.show-arrow.right > .ccl-context-dialog-arrow::after {
-    border-right-color: var(--color_background_12dp);
-}
-/* ... dialog arrow left */
-.itsl-calendar-schedule-dialog.ccl-context-dialog.show-arrow.left > .ccl-context-dialog-arrow::after {
-    border-left-color: var(--color_background_12dp);
-}
-/* ... title */
-.itsl-calendar-schedule-dialog.ccl-context-dialog .ccl-context-dialog-header h2, .itsl-calendar-schedule-dialog.ccl-context-dialog .ccl-context-dialog-header .itsl-calendar-schedule-dialog-contentarea-selectwrapper > select {
-    color: var(--color_text);
-}
-/* ... subtitle */
-.itsl-calendar-schedule-dialog-title-label, .itsl-calendar-schedule-dialog-description-label, .itsl-calendar-schedule-dialog-api-description-label, .itsl-calendar-schedule-dialog-extra-description-header, .itsl-calendar-schedule-dialog-previous-event-extra-description-label, .itsl-calendar-schedule-dialog-selfregistration-label {
-    color: var(--color_text_dark);
-}
-
-/* Plans list view heads */
-.itsl-aggr-planner-course-plans .itsl-aggr-planner-expander{
-    background-color: var(--color_overlay);
-    color: var(--color_text);
-}
-/* ... title */
-.itsl-aggr-planner-course-plans .itsl-aggr-planner-expander .itsl-aggr-planner-expanderlink {
-    color: var(--color_text);
-}
-
-/*----------
- * Search page */
-/* text boxes */
-.formtable table tr td textarea, .formtable table tr td input[type="text"]:not(.ui-autocomplete-input), .formtable table tr td input[type="password"],
-.ccl-formsection-ol input[type="text"] {
-    background-color: var(--color_input_box);
-    border: none;
-    color: var(--color_text);
-}
-/* ... label */
-.formtable table tr td label.itsl-form-label, div.assessment-records span label.itsl-form-label, .ccl-formpanel label.itsl-form-label, .ccl-formpanel span.itsl-form-label,
-.ccl-formcontainer .ccl-formpanel-descriptionlabel {
-    color: var(--color_text);
-}
-/* ... icon */
-.datetimepicker-popup-link > img {
-    filter: invert(70%);
-}
-
-/* date picker */
-.ui-datepicker {
-    background-color: var(--color_background_12dp);
-}
-/* ... icon */
-.ccl-datepicker .ui-datepicker-trigger {
-    filter: invert(70%);
-}
-/* ... day text */
-.ui-datepicker table td a, .ui-datepicker table td span {
-    color: var(--color_text_dark);
-}
-/* ... buttons */
-.ui-datepicker .ui-datepicker-buttonpane button {
-    background-color: var(--color_button);
-    color: var(--color_text);
-    border-color: var(--color_seperator);
-}
-
-/* calendar picker */
-.ccl-formpanel select {
-    background-color: var(--color_input_box);
-    border-color: var(--color_seperator);
-}
-/* ... options */
-.ccl-formpanel select > option {
-    background-color: var(--color_background_12dp);
-    color: var(--color_text);
-}
-
-
-/*====================
- * Profile dialog
- *==================== */
-.c-profileCard__window,
-.o-tabcontrol__menu {
-    background-color: var(--color_background_08dp);
-    border-color: var(--color_seperator);
-}
-
-/* tab text */
-.o-tabcontrol__menuitem a, .o-tabcontrol__menuitem a:hover {
-    color: var(--color_text);
-}
-
-/* relation text */
-.c-profileCard__about .c-profileCard__label {
-    color: var(--color_text);
-}
-
-/* close button */
-.c-modal__cross {
-    color: var(--color_text) !important;
-}
-.c-modal__cross:focus, .c-modal__cross:hover {
-    color: var(--color_text_dark) !important;
-}
-
-/* messages */
-.o-tabcontrol__page.c-profileCard__messagePage {
-    background-color: var(--color_background_08dp);
-    border-color: var(--color_seperator);
-}
-/* collapsed root border */
-.c-profileCard--imcollapsed .o-tabcontrol__page {
-    border-color: var(--color_seperator);
-}
-/* title */
-.c-profileCard__messages-collapser-container > li > h2 {
-    color: var(--color_text) !important;
-}
-/* message area */
-.c-profileCard .c-messages {
-    background: var(--color_background_08dp);
-}
-
-
-/*====================
- * Messages
- *==================== */
-/* header */
-.c-messages__header,
-.c-messages,
-.c-messages.c-modal .sidebar,
-.c-messages__new > .c-messages__body {
-    background-color: var(--color_background_08dp);
-    border-color: var(--color_seperator);
-}
-/* parent background */
-.c-secondary-nav {
-    background-color: var(--color_background_08dp);
-}
-/* header title */
-.c-messages__header > .c-messages__heading, .c-messages__header > .c-messages__heading-new-message {
-    color: var(--color_text);
-}
-
-/* messages list */
-.o-list-ui, .o-list-ui > li, .o-list-ui__item {
-    border-color: var(--color_seperator);
-}
-/* ... item hover */
-.c-messages__threads .c-list-ui__link:focus, .c-messages__threads .c-list-ui__link:hover {
-    background: var(--color_overlay_hover);
-}
-/* message sender name */
-.c-messages__metadata > .c-messages__thread_name {
-    color: var(--color_text);
-}
-/* ... timestamp */
-.c-messages__metadata > .c-conversation__createdRelative, .c-messages__metadata > .c-messages__thread_timeStamp {
-    color: var(--color_text_dark);
-}
-/* message preview */
-.c-messages__threads .c-messages__threadpreview .c-messages__thread_textpreview {
-    color: var(--color_text_dark);
-}
-/* selected chat */
-.o-list-ui__item--selected,
-.c-messages__threads .o-list-ui__item--selected .c-list-ui__link {
-    background-color: var(--color_button_active) !important;
-}
-/* ... sender name */
-.c-messages__threads .o-list-ui__item--selected .c-list-ui__link .c-messages__thread_name, .c-messages__threads .o-list-ui__item--selected .c-list-ui__link .c-messages__thread_textpreview, .c-messages__threads .o-list-ui__item--selected .c-list-ui__link .c-messages__thread_textpreview--system_message {
-    color: var(--color_text) !important;
-}
-/* ... timestamp */
-.c-messages__threads .o-list-ui__item--selected .c-list-ui__link .c-messages__thread_timeStamp {
-    color: var(--color_text_dark) !important;
-}
-
-/* button show all messages */
-.c-modern__button--cancel > span {
-    background-color: var(--color_button);
-    border-color: var(--color_seperator);
-    color: var(--color_text);
-}
-/* ... hover */
-.c-modern__button--cancel:hover:not(:disabled) > span {
-    background-color: var(--color_background_24dp);
-    border-color: var(--color_background_24dp);
-}
-
-/* conversation header title */
-.c-messages__header > .c-messages__header-thread_name .group-thread-name--placeholderGroup, .c-messages__header > .c-messages__header-thread_name > .group-thread-name {
-    color: var(--color_text);
-}
-/* ... arrow */
-.c-messages__header .c-messages__header-chevron-down button {
-    filter: invert(100%);
-}
-
-/* message component */
-.c-conversationcomponent .c-message {
-    background: var(--color_background_08dp);
-}
-/* ... hover */
-.c-conversationcomponent .c-message:hover {
-    background-color: rgba(255,255,255,0.01);
-}
-/* ... sender */
-.c-messages__metadata > .c-conversation__createdBy {
-    color: var(--color_text);
-}
-/* .. text content */
-.c-conversationcomponent .c-conversation__text {
-    color: var(--color_text_dark);
-}
-/* message option dropdown */
-.c-conversationcomponent .ccl-dropdownmenu .c-dropdownmenu--item:hover {
-    background-color: var(--color_overlay_hover);
-}
-
-/* forward message */
-.c-messages [name="c-messages__add-recipients"] .c-avatar__course_name, .c-messages [name="c-messages__add-recipients"] .c-avatar__recipient_name, .c-messages [name="c-messages__new-recipients"] .c-avatar__course_name, .c-messages [name="c-messages__new-recipients"] .c-avatar__recipient_name {
-    color: var(--color_text);
-}
-
-/* footer */
-.c-messages__footer {
-    background-color: var(--color_background_08dp);
-    border-color: var(--color_seperator);
-}
-/* message field */
-.c-messages .compose-input-wrapper > .instant-message-editor {
-    background-color: var(--color_input_box);
-    border-color: var(--color_seperator);
-}
-/* ... focused border */
-.c-messages .compose-input-wrapper > .instant-message-editor:focus {
-    border-color: var(--color_focus);
-}
-/* ... text */
-.c-messages .compose-input-wrapper > .instant-message-editor-placeholder {
-    color: var(--color_text_dark);
-}
-/* send button disabled */
-.c-modern__button:disabled > span {
-    background-color: var(--color_button);
-    border-color: var(--color_seperator);
-    color: var(--color_text_dark);
-}
-/* emoji picker */
-.itsl-emojiPicker {
-    background-color: var(--color_background_16dp);
-    border: none;
-}
-/* ... header */
-.itsl-header-emoji-icons {
-    background-color: var(--color_background_16dp);
-    box-shadow: none;
-    border-color: var(--color_seperator);
-}
-/* ... arrow */
-.c-conversationcomponent .compose-input-wrapper .itsl-emojiPicker::after {
-    border-color: var(--color_background_16dp);
-}
-
-/* message search box */
-.selectize-control.single .selectize-input.input-active, .selectize-input {
-    background: var(--color_input_box);
-    border: none;
-    color: var(--color_text);
-}
-/* ... input */
-.selectize-dropdown, .selectize-input, .selectize-input input,
-.c-messages [name="c-messages__new-recipients"] > .selectize-control .selectize-input input::placeholder {
-    color: var(--color_text);
-}
-/* search result dialog */
-.selectize-dropdown, .selectize-dropdown.form-control,
-.selectize-dropdown .optgroup-header,
-.c-messages_search > div > .selectize-control > .selectize-dropdown > .selectize-dropdown-content > .optgroup > .optgroup-header > .label {
-    background: var(--color_background_16dp);
-    color: var(--color_text);
-}
-/* ... hover/active */
-.selectize-dropdown .active {
-    background-color: var(--color_overlay_hover);
-    color: var(--color_text);
-}
-/* filter div */
-.selectize-control.multi .selectize-input > div {
-    background: var(--color_overlay);
-    color: var(--color_text_dark);
-}
-
-
-/*====================
- * Notification Dialog
- *==================== */
-/* root box */
-.itsl-notifications-popup-container {
-    background: var(--color_background_12dp);
-}
-/* ... title */
-.itsl-notifications-popup-container > h3 {
-    color: var(--color_text);
-}
-/* footer */
-.itsl-notifications-popup-footer-box {
-    background-color: var(--color_background_12dp) !important;
-    border-color: var(--color_seperator);
-}
-
-/* notification sender text */
-.itsl-widget-content-ul span.itsl-widget-extrainfo a, .itsl-widget-content-ul a.itsl-widget-personname {
-    color: var(--color_text);
-}
-/* ... hover */
-.itsl-widget-content-ul span.itsl-widget-extrainfo a:hover, .itsl-widget-content-ul a.itsl-widget-personname:hover {
-    color: var(--color_anchor);
-}
-
-/* unread notification */
-.itsl-notification-item-unread {
-    background-color: var(--color_overlay);
-}
-
-
-/*====================
- * Resource view page
- *==================== */
-/* header */
-.itsl-play-plan-dialog-container .itsl-play-plan-dialog-header,
-.itsl-play-plan-dialog-container .itsl-play-plan-dialog-header .itsl-play-plan-dialog-navigation-container {
-    background-color: var(--color_background_header);
-    border: none;
-}
-/* control buttons */
-.itsl-play-plan-dialog-container .itsl-play-plan-dialog-prev-button, .itsl-play-plan-dialog-container .itsl-play-plan-dialog-next-button, .itsl-play-plan-dialog-container .itsl-play-plan-dialog-index-button, .itsl-play-plan-dialog-container .itsl-play-plan-dialog-close-button {
-    color: var(--color_text);
-    border-color: var(--color_seperator);
-}
-/* show all dropdown menu */
-.ccl-context-dialog {
-    background-color: var(--color_background_06dp);
-}
-/* list item hover */
-.itsl-play-plan-dialog-container .itsl-play-plan-index-list .itsl-play-plan-index-item:hover {
-    background-color: var(--color_overlay_hover);
-}
-/* list items text color */
-.itsl-play-plan-dialog-container .itsl-play-plan-index-list .itsl-play-plan-index-item a {
-    color: var(--color_text);
-}
-
-/* file name title */
-h1.ccl-pageheader, h1.ccl-pageheader > span, h1.ccl-pageheader input.ccl-pageheader-title-editor {
-    color: var(--color_text);
-}
-
-/* remove empty space */
-.ccl-pageheader {
-    margin: 0;
-}
-header .h-mrb10 {
-    margin: 0 !important;
-}
-
-/*----------
- * Task resource */
-.itsl-play-plan-dialog-container .itsl-play-plan-dialog-content {
-    background-color: var(--color_background_00dp);
-}
-/* task card */
-.h-box {
-    background-color: var(--color_card) !important;
-    border: none;
-}
-/* ... title */
-.ccl-ext-item h2 {
-    color: var(--color_text);
-}
-/* ... file card */
-.ccl-fl-item {
-    background-color: var(--color_background_03dp);
-    border-color: var(--color_seperator);
-}
-.ccl-fl-item:hover {
-    background-color: var(--color_overlay_hover);
-    border-color: var(--color_seperator);
-}
-/** file name */
-.ccl-fl-item-details-text-file-name-uploaded,
-.ccl-fl-item-details-text-file-extension-uploaded {
-    color: var(--color_text);
-}
-/* file dropdown menu */
-.ccl-fl-context-menu-ellipsis > span {
-    color: var(--color_text_dark);
-}
-/* ... context menu */
-.ccl-fl-context-menu-dialog,
-.ccl-fl-context-menu-dialog-content-item {
-    background-color: var(--color_background_12dp);
-    border-color: var(--color_seperator);
-    color: var(--color_text);
-}
-.ccl-fl-context-menu-dialog-content-item:hover {
-    background-color: var(--color_overlay_hover);
-}
-
-/* side menu */
-.itsl-lte-settings-wrapper,
-.itsl-lte-view-summary .itsl-lte-settings-overlay-dialog-footer, .itsl-lte-view-overlayread .itsl-lte-settings-overlay-dialog-footer, .itsl-lte-view-overlayedit .itsl-lte-settings-overlay-dialog-footer,
-.itsl-lte-settings {
-    background-color: var(--color_background_00dp);
-    border-color: var(--color_seperator) !important;
-}
-.itsl-lte-view-overlayedit .itsl-lte-settings-overlay-dialog-footer-button-container, .itsl-lte-view-overlayread .itsl-lte-settings-overlay-dialog-footer-button-container {
-    border-color: var(--color_seperator);
-}
-/* collapse text */
-.itsl-lte-settings-overlay-dialog-collapse .ili, .itsl-lte-settings-overlay-dialog-expand .ili,
-.itsl-lte-settings-overlay-dialog-collapse, .itsl-lte-settings-overlay-dialog-expand {
-    color: var(--color_text_dark);
-}
-/* titles */
-.itsl-lte-view-overlayread .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-text, .itsl-lte-view-overlayedit .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-text {
-    color: var(--color_text_dark);
-}
-.itsl-lte-view-overlayread .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon > svg .mainColor, .itsl-lte-view-overlayedit .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon > svg .mainColor,
-.itsl-lte-view-overlayread .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon path {
-    fill: var(--color_text_dark);
-}
-
-/* reader button */
-.prom-button__basic > .prom-button__text {
-    background-color: var(--color_button);
-}
-
-
-/*====================
- * Library page
- *==================== */
-/* Search box */
-.il-search-header .il-search .il-search-box .il-searchtextbox,
-.il-search-header .il-search .il-search-box button.il-search-submit.disabled {
-    background-color: var(--color_input_box);
-}
-/* fix white text in search box */
-.il-search-moved .il-search .il-search-box .il-searchtextbox {
-    color: #000;
-}
-
-}
+    .u-color-gray, .u-color-grey {
+        color: var(--color_text_dark);
+    }
+    
+    hr {
+        border-color: var(--color_seperator);
+    }
+    
+    /* card header text */
+    .itsl-cb-stream-item-header,
+    .il-widget-titleBlock > h2 {
+        color: var(--color_text);
+    }
+    /* card content text */
+    .itsl-light-bulletins-list-item-text {
+        color: var(--color_text_dark);
+    }
+    /* card timestamp text */
+    .itsl-cb-stream-item-timestamp {
+        color: var(--color_text_dark);
+    }
+    
+    /* show more seperator line */
+    .ccl-textexpander-line {
+        border-color: var(--color_seperator);
+    }
+    
+    /* link less focus */
+    a.h-less-focus, a.h-less-focus:link, a.h-less-focus:visited, a.h-less-focus:active, input[type="button"].h-less-focus, input[type="button"].h-less-focus:link, input[type="button"].h-less-focus:visited, input[type="button"].h-less-focus:active, button[type="button"].h-less-focus, button[type="button"].h-less-focus:link, button[type="button"].h-less-focus:visited, button[type="button"].h-less-focus:active {
+        color: var(--color_text_dark) !important;
+    }
+    /* link less focus hover */
+    a.h-less-focus:hover, input[type="button"].h-less-focus:hover, button[type="button"].h-less-focus:hover {
+        color: var(--color_anchor) !important;
+    }
+    
+    /* form table */
+    .itsl-formbox {
+        background: var(--color_card);
+        border: none;
+        box-shadow: none;
+    }
+    
+    /* info header */
+    .ccl-feedback-tip {
+        background-color: var(--color_overlay_info);
+        color: var(--color_text);
+    }
+    
+    /* feedback header */
+    .ccl-feedback-functionality {
+        background-color: var(--color_card);
+        color: var(--color_text_dark);
+    }
+    /* .. icon */
+    .ccl-feedback-functionality > .ili.ili-info-circle {
+        color: var(--color_text_dark);
+    }
+    
+    /* select box */
+    select,
+    .formtable table tr td select {
+        background-color: var(--color_background_dropdown);
+        border-color: var(--color_seperator);
+        color: var(--color_text);
+    }
+    select > option,
+    .formtable table tr td select > option {
+        background-color: var(--color_background_dropdown);
+        color: var(--color_text);
+    }
+    
+    /* button */
+    .ccl-button-color-grey, a.ccl-button-color-grey, a.ccl-button-color-grey:active, a.ccl-button-color-grey:link, a.ccl-button-color-grey:visited {
+        color: var(--color_text_dark);
+    }
+    
+    /* dialog */
+    .dialog.svelte-5w1cwx {
+        background-color: var(--color_background_08dp);
+    }
+    
+    /* search field */
+    .l-topmenu-searchbox .ccl-searchtextbox-personalmenu input {
+        background-color: var(--color_input_box);
+        border-color: var(--color_seperator) !important;
+    }
+    
+    
+    /*====================
+     * Common Dropdown menu
+     *==================== */
+    /* Dropdown menus */
+    .ccl-dropdownmenu,
+    .c-dropdownMenu__all,
+    .c-dropdownMenu__navigation .c-dropdown,
+    .c-dropdownMenu__navigation {
+        background-color: var(--color_background_dropdown);
+        border-color: var(--color_seperator);
+    }
+    /* dropdown arrow */
+    .ccl-context-dialog.bottom > .ccl-context-dialog-arrow::after {
+        border-bottom-color: var(--color_background_dropdown) !important;
+    }
+    .l-menu-course .ccl-dropdownmenu .ccl-context-dialog-arrow, .l-menu-project .ccl-dropdownmenu .ccl-context-dialog-arrow, .l-menu-yourchildren .ccl-dropdownmenu .ccl-context-dialog-arrow {
+        border-bottom-color: var(--color_background_dropdown) !important;
+    }
+    
+    /* dropdown menu selected */
+    .ccl-dropdownmenu-selected {
+        background-color: var(--color_button_active);
+    }
+    /* dropdown menu hover */
+    .ccl-dropdownmenu:not(.ccl-dropdownmenu-modern) > ul > li:focus, .ccl-dropdownmenu:not(.ccl-dropdownmenu-modern) > ul > li:hover {
+        background-color: var(--color_overlay_hover);
+    }
+    /* dropdown menu border seperator */
+    .ccl-dropdownmenu > ul > li:not(.h-is-mobile) ~ li {
+        border-color: var(--color_seperator);
+    }
+    
+    /* dropdown element */
+    .ccl-dropdownmenu.ccl-dropdownmenu-modern {
+        border: none;
+    }
+    /* dropdown menu text */
+    .ccl-dropdownmenu.ccl-dropdownmenu-modern > ul > li {
+        color: var(--color_text);
+    }
+    /* dropdown menu button item */
+    .ccl-dropdownmenu.ccl-dropdownmenu-modern > ul > li > button {
+        background-color: var(--color_background_dropdown);
+    }
+    /* dropdown menu button item hover */
+    .ccl-dropdownmenu.ccl-dropdownmenu-modern > ul > li > button:focus, .ccl-dropdownmenu.ccl-dropdownmenu-modern > ul > li > button:hover,
+    .ccl-dropdownmenu > ul > li:focus, .ccl-dropdownmenu > ul > li:hover {
+        background-color: var(--color_button_active);
+    }
+    
+    /* dropdown element badge */
+    .itsl-counter-badge-grey {
+        background-color: var(--color_overlay);
+        border-color: var(--color_seperator);
+        color: var(--color_text);
+    }
+    
+    /* text area */
+    textarea {
+        background-color: var(--color_input_box);
+        border: none;
+    }
+    
+    /* form header */
+    .ccl-formcontainer h2.ccl-formsection-titleheader {
+        color: var(--color_text);
+    }
+    
+    
+    /*====================
+     * Login page
+     *==================== */
+    .itsl-login .itsl-widget, .itsl-welcome .itsl-widget {
+        background-color: var(--color_card);
+        border: none;
+    }
+    
+    /* School name */
+    .itsl-login .itsl-login-container, .itsl-login .itsl-login-container-pincode {
+        color: var(--color_text);
+    }
+    
+    /* username & password field */
+    .itsl-login .its-login-input-container input {
+        background-color: var(--color_input_box);
+        border: none;
+    }
+    /* Login button */
+    .itsl-login .its-login-input-container input[type=submit] {
+        background-color: #007E33;
+    }
+    .itsl-login .its-login-input-container input[type=submit]:hover {
+        background-color: #009d40;
+    }
+    
+    
+    /*====================
+     * Main page (Aktuelles)
+     *==================== */
+    body,
+    .itsl-homepagetabs-wrapper,
+    .itsl-updatestab-wrapper,
+    .coursecards {
+        background: var(--color_background_00dp) !important;
+        color: var(--color_text);
+    }
+    
+    /* Header buttons (Kurse & Updates) */
+    .itsl-homepagetabs-tab > span {
+        background-color: var(--color_button);
+        border: none;
+    }
+    .itsl-homepagetabs-tab:not(.active):hover > span {
+        background-color: var(--color_primary_light);
+    }
+    /* active header button */
+    .itsl-homepagetabs-tab.active > span, .itsl-homepagetabs-tab:active > span {
+        background-color: var(--color_primary);
+        color: var(--color_text);
+    }
+    
+    /* Updates Cards */
+    body:not(.l-group-dashboard) .il-widget.itsl-cb-news .itsl-widget-content-ul > li, .il-widget.itsl-cb-stream .itsl-widget-content-ul > li {
+        background-color: var(--color_card);
+        border: none !important;
+    }
+    /* 'show more' shadow */
+    .ccl-textexpander-container[data-collapsed]::before,
+    .itsl-cb-planner .ccl-textexpander-container[data-collapsed]::before {
+        background: linear-gradient(to bottom,rgba(0,0,0,0),var(--color_card));
+    }
+    
+    /* Updates tasks (Aufgaben) card */
+    .itsl-homepagetabs .il-widget.itsl-cb-tasks2 .tasklist2_container {
+        background-color: var(--color_card);
+    }
+    .tasklist__emptystate {
+        color: var(--color_text);
+    }
+    
+    /* Updates events (Ereignisse) card */
+    .itsl-updatestab-wrapper .itsl-cb-activities .itsl-widget-toolbar,
+    .itsl-updatestab-wrapper .il-widgetzone-wideleft-right .il-widget-bottom {
+        background-color: var(--color_card);
+        color: var(--color_text);
+    }
+    /* events timestamps */
+    .itsl-cb-activities .itsl-dashboard-event .itsl-dashboard-time-range {
+        color: var(--color_anchor);
+    }
+    /* events seperator */
+    ul.itsl-widget-content-ul > li {
+        border-color: var(--color_seperator);
+    }
+    
+    
+    /*====================
+     * Header (nav bar)
+     *==================== */
+    nav.l-main-menu ul, nav.l-personal-menu,
+    nav.l-main-menu li.active a:not(.ccl-button):visited,
+    nav.l-main-menu li.active a:not(.ccl-button):link {
+        background-color: var(--color_background_header);
+    }
+    /* header hover color */
+    ul.l-main-menu-items > li > a:hover, ul.l-more-menu > li > button:hover,
+    nav.l-main-menu li.active button:not(.ccl-button):hover {
+        background-color: var(--color_overlay_hover);
+    }
+    
+    /* dropdown list item */
+    .l-menu-course .ccl-dropdownmenu > div > ul > li,
+    .l-menu-project .ccl-dropdownmenu > div > ul > li {
+        background-color: var(--color_background_dropdown);
+    }
+    .l-menu-course .ccl-dropdownmenu > div > ul > li:hover,
+    .l-menu-project .ccl-dropdownmenu > div > ul > li:hover {
+        background-color: var(--color_overlay_hover);
+    }
+    
+    /* dropdown list item text */
+    .l-menu-course .ccl-dropdownmenu .dropdown-menu-item, .l-menu-project .ccl-dropdownmenu .dropdown-menu-item, .l-menu-yourchildren .ccl-dropdownmenu .dropdown-menu-item {
+        color: var(--color_text) !important;
+    }
+    /* ..timestamp text */
+    .l-menu-course .ccl-dropdownmenu .itsl-widget-extrainfo, .l-menu-project .ccl-dropdownmenu .itsl-widget-extrainfo, .l-menu-yourchildren .ccl-dropdownmenu .itsl-widget-extrainfo {
+        color: var(--color_text_dark);
+    }
+    
+    /* Dropdown search box */
+    .c-dropdownMenu__navigation .c-search input:valid {
+        background-color: var(--color_input_box);
+        border: none;
+    }
+    /* ... text placeholder color */
+    .c-dropdownMenu__navigation .c-search > input::placeholder {
+        color: var(--color_text_dark);
+    }
+    /* ... text color */
+    .c-dropdownMenu__navigation .c-search input {
+        color: var(--color_text);
+    }
+    
+    /* Dropdown select box */
+    .c-dropdownMenu__navigation .c-dropdown > select {
+        background-color: var(--color_input_box) !important;
+        border: none;
+        color: var(--color_text) !important;
+    }
+    /* ... select options */
+    .c-dropdownMenu__navigation .c-dropdown > select > option {
+        background-color: var(--color_background_12dp) !important;
+    }
+    /* ... select arrow */
+    .c-dropdownMenu__navigation .c-dropdown::after {
+        color: var(--color_text);
+    }
+    
+    
+    /*====================
+     * Groups page
+     *==================== */
+    .l-modern-ui-dashboard.l-group-dashboard .il-widget {
+        background-color: var(--color_card);
+        border: none;
+    }
+    
+    
+    /*====================
+     * All courses form
+     *==================== */
+    /* header text */
+    .ccl-gridtoolbar .itemsleft .ccl-iconlink:not(.ccl-button), .ccl-gridtoolbar .itemsleft .ccl-iconlink:not(.ccl-button) span {
+        color: var(--color_text);
+    }
+    
+    /* header select box */
+    body:not(.h-android) .ccl-gridtoolbar .itemsleft select, body:not(.h-android) .ccl-gridtoolbar .itemsright select {
+        background-color: var(--color_input_box);
+        border: none;
+    }
+    
+    /* Table */
+    .tablelisting,
+    .tablelisting table,
+    .tablelisting table > tbody > tr > th {
+        background: var(--color_card);
+    }
+    /* table row hover */
+    .tablelisting table tr:not(.assessment-record-table-nohover-background table tr):hover {
+        background: var(--color_overlay_hover);
+    }
+    /* table row selected */
+    .tablelisting table .selected td {
+        background-color: var(--color_overlay_hover);
+    }
+    /* head backgrounds */
+    .tablelisting table > tbody > tr > th {
+        background: var(--color_card);
+    }
+    /* head backgrounds hover & active */
+    .tablelisting table th.th-sortable:hover, .tablelisting table th.th-sortable:hover a, .tablelisting table th.th-sortable:hover a:active, .tablelisting table th.th-sortable:hover a:focus, .tablelisting table th.th-sortable:hover a:hover, .tablelisting table th.th-sortable:hover a:link, .tablelisting table th.th-sortable:hover a:visited, .tablelisting table th.th-selected, .tablelisting table th.th-selected:hover, .tablelisting table th.th-selected:hover a, .tablelisting table th.th-selected:hover a:active, .tablelisting table th.th-selected:hover a:focus, .tablelisting table th.th-selected:hover a:hover, .tablelisting table th.th-selected:hover a:link, .tablelisting table th.th-selected:hover a:visited {
+        background: var(--color_button_active);
+    }
+    /* head text colors */
+    .tablelisting table th a, .tablelisting table th a:active, .tablelisting table th a:focus, .tablelisting table th a:hover, .tablelisting table th a:link, .tablelisting table th a:visited,
+    .tablelisting table tr th {
+        color: var(--color_text) !important;
+    }
+    /* row seperator */
+    .tablelisting table tr > td, .tablelisting table tr > th {
+        border-color: var(--color_seperator) !important;
+    }
+    
+    
+    /*====================
+     * Course page
+     *==================== */
+    /* course header (nav bar) */
+    .l-main-content-header {
+        background-color: var(--color_background_header_course);
+    }
+    
+    /* More Dropdown */
+    #main-content-nav-more {
+        background-color: var(--color_background_08dp);
+    }
+    
+    /* Tasks title color */
+    .tasklist2_header > h2 {
+        color: var(--color_text);
+    }
+    /* switch buttons */
+    .tasklist2_header > .buttons_wrapper > button {
+            color: var(--color_text);
+    }
+    /* ... selected */
+    .tasklist2_header > .buttons_wrapper > button.active > span, .tasklist2_header > .buttons_wrapper > button.focus > span {
+        color: var(--color_text);
+        border-bottom-color: var(--color_text);
+    }
+    /* tasks dropdown menu */
+    .prom-collapsible-list__innerbutton {
+        background-color: var(--color_button) !important;
+    }
+    .prom-collapsible-list__button:hover .prom-collapsible-list__innerbutton {
+        background-color: var(--color_button_active) !important;
+    }
+    /* ... seperator */
+    .prom-collapsible-list__buttonwrapper::before {
+        border-color: var(--color_button) !important;
+    }
+    /* ... text color */
+    .prom-collapsible-list__buttontoggle,
+    .prom-collapsible-list__buttontext {
+        color: var(--color_text_dark) !important;
+        border-color: var(--color_text_dark) !important;
+    }
+    /* ... counter */
+    .prom-collapsible-list__buttoncounter {
+        background-color: var(--color_overlay) !important;
+        color: var(--color_text_dark) !important;
+    }
+    /* task cards */
+    .tasklist2__task {
+        background-color: var(--color_card);
+        border-color: var(--color_card);
+    }
+    .tasklist2__taskitem:hover .tasklist2__task {
+        border-color: var(--color_seperator);
+    }
+    /* ... text */
+    .tasklist2__task > span {
+        color: var(--color_text_dark);
+    }
+    /* ... status text */
+    .tasklist2__extra {
+        color: var(--color_text_dark);
+    }
+    
+    /* person name text color */
+    .itsl-light-bulletins-person-name > a > span {
+        color: var(--color_text);
+    }
+    /* timestamp text color */
+    .itsl-light-bulletins-timespan {
+        color: var(--color_text_dark);
+    }
+    
+    /* Notification write card */
+    body:not(.l-group-dashboard) .il-widget.itsl-cb-news .itsl-widget-content-ul > li.itsl-light-bulletins-new-item-listitem, .il-widget.itsl-cb-stream .itsl-widget-content-ul > li.itsl-light-bulletins-new-item-listitem {
+        background: var(--color_card);
+    }
+    /* text area */
+    .ccl-text-input > textarea, .ccl-text-input > input[type="text"] {
+        border-color: var(--color_seperator);
+        background-color: var(--color_input_box);
+    }
+    /* add notification button */
+    .ccl-button-color-green[disabled], a.ccl-button-color-green[disabled], a.ccl-button-color-green:active[disabled], a.ccl-button-color-green:link[disabled], a.ccl-button-color-green:visited[disabled] {
+        background-color: var(--color_button);
+        border-color: var(--color_seperator);
+        color: var(--color_text);
+    }
+    /* options dropdown */
+    .itsl-light-bulletins-new-item-menu-targetlink {
+        color: var(--color_text_dark);
+    }
+    /* ... arrow */
+    .itsl-light-bulletins-new-item-menu-targetlink > .h-arrow-down {
+        border-top-color: var(--color_text_dark);
+    }
+    /* resource button */
+    .itsl-light-bulletin-attachmentbuttonlist > li > button {
+        color: var(--color_text_dark);
+    }
+    /* ... icon */
+    .itsl-light-bulletin-attachmentbuttonlist > li > button > img {
+        filter: invert(80%);
+    }
+    
+    /* Last changes cards */
+    body:not(.l-group-dashboard) .itsl-cb-news .itsl-widget-content-ul > li, .itsl-cb-stream .itsl-widget-content-ul > li, .l-modern-ui-dashboard .itsl-cb-notifications .itsl-widget-content-ul > li {
+        background-color: var(--color_card);
+        border: none;
+    }
+    /* ... timestamp */
+    .itsl-widget-extrainfo {
+        color: var(--color_text_dark);
+    }
+    
+    /* active plan card */
+    .itsl-cb-planner > .il-widget-bottom {
+        background-color: var(--color_card);
+        border: none !important;
+        
+    }
+    /* ... title */
+    .itsl-single-plan .itsl-single-plan-topic-title {
+        color: var(--color_text);
+    }
+    /* ... timestamp */
+    .itsl-single-plan .itsl-plan-date .ili-calendar-o,
+    .itsl-single-plan .itsl-plan-date .itsl-plan-date-text {
+        color: var(--color_text_dark);
+    }
+    /* ... resource card */
+    .itsl-single-plan .itsl-single-plan-elements .itsl-single-plan-element, .itsl-single-plan .itsl-single-plan-homework-elements .itsl-single-plan-element {
+        background-color: var(--color_background_08dp);
+        border-color: var(--color_seperator);
+    }
+    .itsl-single-plan .itsl-single-plan-elements .itsl-single-plan-element:not(.itsl-single-plan-elements-inactive):hover, .itsl-single-plan .itsl-single-plan-homework-elements .itsl-single-plan-element:not(.itsl-single-plan-elements-inactive):hover {
+        border-color: var(--color_focus);
+    }
+    /* ... resource text */
+    .itsl-single-plan .itsl-single-plan-elements .itsl-single-plan-element .itsl-single-plan-element-title, .itsl-single-plan .itsl-single-plan-homework-elements .itsl-single-plan-element .itsl-single-plan-element-title {
+        color: var(--color_text);
+    }
+    /* start button */
+    .itsl-play-plan-button-container .ccl-button.ccl-button-primary.ccl-button-outline, .itsl-play-plan-button-container a.ccl-button.ccl-button-primary.ccl-button-outline {
+        border-color: var(--color_anchor);
+        color: var(--color_anchor);
+    }
+    .ccl-button-outline, a.ccl-button-outline {
+        background-color: var(--color_button);
+    }
+    /* plan text */
+    .itsl-cb-planner > .il-widget-bottom {
+        color: var(--color_text_dark);
+    }
+    
+    /* next page card */
+    .itsl-widget-pager,
+    .ccl-button-plain {
+        background-color: var(--color_card);
+    }
+    
+    /* ----------
+     * Plans page */
+    /* plans card */
+    .itsl-planner .itsl-topic .itsl-topic-content-container {
+        background-color: var(--color_card);
+        border: none;
+    }
+    /* ... lower card part */
+    .itsl-planner .itsl-topic .itsl-topic-plans {
+        background-color: var(--color_card);
+        border: none;
+    }
+    /* .. seperator */
+    .itsl-planner:not(.itsl-planner-no-topics) .itsl-topic-columns {
+        border-color: var(--color_seperator);
+    }
+    /* ... dropdown arrow */
+    .itsl-planner .itsl-topic .itsl-topic-expander .itsl-topic-expander-link::before {
+        filter: invert(100%);
+    }
+    
+    /* Table-List switch */
+    a.ccl-multipleswitcher-button.active, a.ccl-multipleswitcher-button:hover {
+        background-color: var(--color_button_active);
+        border: none;
+    }
+    /* inactive */
+    a.ccl-multipleswitcher-button {
+        background-color: var(--color_button);
+        border: none;
+    }
+    .ccl-gridtoolbar a {
+        color: var(--color_text_dark);
+    }
+    
+    /* search box */
+    .prom-input-field .prom-input-field__input {
+        background-color: var(--color_input_box);
+        border: none !important;
+        color: var(--color_text);
+    }
+    /* search result card */
+    .ccl-responsivegrid .emptygridtext, .ccl-responsivegrid .gridtext {
+        background-color: var(--color_card);
+        border: none;
+    }
+    /* ... text color */
+    .ccl-responsivegrid .emptygridtext, .ccl-responsivegrid .gridtext {
+        color: var(--color_text);
+    }
+    /* delete search button */
+    .prom-button__secondary > .prom-button__text {
+        background-color: var(--color_button);
+        border: none;
+    }
+    .prom-button__secondary:hover > .prom-button__text {
+        background-color: var(--color_overlay_hover);
+    }
+    /* delete search button text */
+    .prom-button__secondary > .prom-button__text {
+        color: var(--color_text);
+    }
+    
+    /* menu button */
+    .ccl-button-color-grey, a.ccl-button-color-grey, a.ccl-button-color-grey:active, a.ccl-button-color-grey:link, a.ccl-button-color-grey:visited {
+        background-color: var(--color_button);
+        border: none;
+    }
+    
+    /* filter select box options background */
+    body:not(.h-android) .ccl-gridtoolbar .itemsright select option,
+    body:not(.h-android) .ccl-gridtoolbar .itemsright select optgroup {
+        background-color: var(--color_background_12dp) !important;
+    }
+    
+    /* TABLE */
+    /* plan table cell background */
+    .itsl-planner .ccl-responsivegrid .tableview .gridcolumn {
+        background-color: var(--color_card);
+        border-color: var(--color_seperator);
+    }
+    /* resource text color */
+    .itsl-planner .itsl-plan-elements .itsl-plan-elements-item-link {
+        color: var(--color_text_dark);
+    }
+    /* resource text color hover */
+    .itsl-planner .itsl-plan-elements a.itsl-plan-elements-item-link:hover {
+        color: var(--color_anchor) !important;
+    }
+    
+    /* LIST */
+    .ccl-responsivegrid .defaultview .gridrow {
+        background-color: var(--color_card);
+    }
+    /* border color */
+    .itsl-planner .ccl-responsivegrid .defaultview .gridrow {
+        border-color: var(--color_seperator);
+    }
+    /* titles color */
+    .itsl-planner .ccl-responsivegrid .defaultview .gridrow,
+    .itsl-planner .ccl-responsivegrid .itsl-plan-cell-title {
+        color: var(--color_text);
+    }
+    
+    /* Plan description dialog */
+    .ccl-cssmodal.ccl-cssmodal-visualstyle-benevolent > .ccl-cssmodal-modal-inner {
+        background: var(--color_background_12dp);
+    }
+    /* ... title */
+    .ccl-cssmodal.ccl-cssmodal-visualstyle-benevolent > .ccl-cssmodal-modal-inner > .ccl-cssmodal-modal-header > h2 {
+        color: var(--color_text);
+    }
+    
+    /* ----------
+     * Resources page */
+    /* side menu */
+    .treemenu-viewport {
+        background-color: var(--color_background_01dp);
+        border: none;
+    }
+    /* side menu text color */
+    .treemenu-viewport .ccl-treemenu.jstree a, .treemenu-viewport .ccl-treemenu.jstree li > span {
+        color: var(--color_text_dark);
+    }
+    /* ... clicked */
+    .treemenu-viewport .ccl-treemenu a.jstree-clicked {
+        color: var(--color_anchor);
+    }
+    
+    /* search box */
+    .itsl-process-folder-search > .il-search-box > .il-search-textbox {
+        background-color: var(--color_input_box);
+        border: none;
+    }
+    /* search result dialog */
+    .il-search + .il-search-liveresults {
+        background-color: var(--color_background_12dp);
+        border: none;
+    }
+    /* search result item */
+    .il-search + .il-search-liveresults > div > a > .il-search-liveresult {
+        border-color: var(--color_seperator);
+    }
+    /* ... hover */
+    .il-search + .il-search-liveresults > div:not(.il-search-liveresult-noresults) > a > .il-search-liveresult:hover {
+        background-color: var(--color_overlay_hover);
+    }
+    /* ... text color */
+    .il-search + .il-search-liveresults > div > a > .il-search-liveresult > div > span {
+        color: var(--color_text);
+    }
+    .itsl-process-folder-description-path {
+        color: var(--color_text_dark);
+    }
+    
+    /* search result bottom part */
+    .il-search + .il-search-liveresults > .il-search-liveresults-showall {
+        border-color: var(--color_seperator);
+    }
+    
+    /* TABLE */
+    .ccl-grid .gridtable {
+        border-color: var(--color_seperator);
+    }
+    /* table head cell */
+    .ccl-grid th {
+        background-color: var(--color_card);
+        color: var(--color_text);
+    }
+    /* ... hover */
+    .ccl-grid .gridtable th.thsortable:hover, .ccl-grid .gridtable th.thsortable:hover a, .ccl-grid .gridtable th.thsortable:hover a:active, .ccl-grid .gridtable th.thsortable:hover a:focus, .ccl-grid .gridtable th.thsortable:hover a:hover, .ccl-grid .gridtable th.thsortable:hover a:link, .ccl-grid .gridtable th.thsortable:hover a:visited, .ccl-grid .gridtable th.thselected:hover, .ccl-grid .gridtable th.thselected:hover a, .ccl-grid .gridtable th.thselected:hover a:active, .ccl-grid .gridtable th.thselected:hover a:focus, .ccl-grid .gridtable th.thselected:hover a:hover, .ccl-grid .gridtable th.thselected:hover a:link, .ccl-grid .gridtable th.thselected:hover a:visited {
+        background-color: var(--color_button_active);
+    }
+    /* ... text color */
+    .ccl-grid th a, .ccl-grid th a:link {
+        color: var(--color_text);
+    }
+    /* table body cell */
+    .ccl-grid .gridtable tbody tr {
+        background-color: var(--color_card);
+    }
+    /* ... hover */
+    .ccl-grid .gridtable tbody tr:hover, .ccl-grid .gridtable tbody tr.selectedrow {
+        background-color: var(--color_overlay_hover);
+    }
+    /* ... border */
+    .ccl-grid .gridtable tbody td {
+        border-color: var(--color_seperator);
+    }
+    
+    /* paginator selector */
+    .ccl-pagination > li > a, .ccl-pagination > li > span {
+        background-color: var(--color_button);
+        border: none;
+    }
+    /* ... item text */
+    .ccl-pagination > li > a, .ccl-pagination > li > span {
+        color: var(--color_text_dark);
+    }
+    /* ... selected */
+    .ccl-pagination > li.selected > span {
+        background-color: var(--color_button_active);
+    }
+    /* ... next arrow */
+    .ccl-pagination > li.previous-next > a {
+        color: var(--color_text);
+    }
+    
+    /* items count text */
+    .ccl-pager {
+        color: var(--color_text);
+    }
+    
+    /* items count select box */
+    .ccl-pager > .page-size-chooser > select {
+        background-color: var(--color_input_box);
+        border: none;
+    }
+    /* ... options background */
+    .ccl-pager > .page-size-chooser > select option {
+        background-color: var(--color_background_12dp) !important;
+    }
+    
+    /* Answer task text field */
+    .cke_1.cke_chrome {
+        border-color: var(--color_seperator);
+    }
+    .cke_1 .cke_top,
+    .cke_1 .cke_bottom {
+        background-image: linear-gradient(to bottom,var(--color_background_08dp),var(--color_background_08dp));
+        border-color: var(--color_seperator);
+        box-shadow: none;
+    }
+    a.cke_path_item, span.cke_path_empty {
+        text-shadow: none;
+    }
+    /* text options */
+    .cke_1 .cke_combo_button,
+    .cke_1 .cke_toolgroup {
+        border-color: var(--color_seperator);
+        background: var(--color_button);
+        box-shadow: none;
+    }
+    /* ... text */
+    .cke_combo_text {
+        color: var(--color_text_dark);
+        text-shadow: none;
+    }
+    .cke_button_icon {
+        filter: invert(100%);
+    }
+    /* ... hover */
+    .cke_1 a.cke_button_off:hover, .cke_1 a.cke_button_off:focus, .cke_1 a.cke_button_off:active {
+        background: var(--color_overlay_hover);
+    }
+    /* ... on */
+    .cke_1 .cke_button_on {
+        background: var(--color_button_active);
+    }
+    /* font selector */
+    .cke_1.cke_panel {
+        border: none;
+        background-color: var(--color_background_12dp);
+    }
+    /* ,,, hover */
+    .cke_1 a.cke_combo_button:hover, .cke_1 a.cke_combo_button:focus, .cke_1 .cke_combo_on a.cke_combo_button {
+        background: var(--color_overlay_hover);
+        border-color: var(--color_seperator);
+    }
+    /* ... title */
+    .cke_panel_grouptitle {
+        background: var(--color_background_00dp);
+        border-color: var(--color_seperator);
+        color: var(--color_text);
+        text-shadow: none;
+        box-shadow: none;
+    }
+    /* ... item */
+    .cke_panel_listItem a {
+        border: none;
+    }
+    .cke_panel_listItem a:hover, .cke_panel_listItem a:focus, .cke_panel_listItem a:active {
+        border-color: var(--color_seperator);
+        background-color: var(--color_overlay_hover);
+    }
+    /* ... text */
+    #ccl-uc-dropzone-text,
+    .ccl-uc-dropzone-container .ili {
+        color: var(--color_text);
+    }
+    
+    /* file drop zone */
+    .ccl-uc-dropzone {
+        background-color: var(--color_background_12dp);
+    }
+    .ccl-uc-dropzone-container:hover .ccl-uc-dropzone {
+        background-color: var(--color_overlay_hover);
+    }
+    
+    /* ----------
+     * Status page */
+    /* Nacharbeiten card */
+    .categorybox {
+        background-color: var(--color_card);
+        border: none;
+    }
+    /* ... border top */
+    .ilw-widget-color-blue::before, .ilw-widget-header-blue, .categorybox h2.skin, .section .sectionheader {
+        border-top-color: var(--color_card);
+    }
+    
+    /* action card */
+    .categorybox24 li, .categorybox48 li {
+        background-color: var(--color_card);
+        border-color: var(--color_card);
+    }
+    /* ... hover */
+    .categorybox24 li:hover, .categorybox48 li:hover {
+        background-color: var(--color_background_03dp);
+        border-color: var(--color_seperator);
+    }
+    /* ,,, title */
+    .categorybox a {
+        color: var(--color_text);
+    }
+    
+    /* ----------
+     * People page */
+    /* tabs card */
+    .tabsframe,
+    .ccl-pagetabs .active, .ccl-pagetabs li.active a:hover {
+        background-color: var(--color_card);
+        border: none !important;
+        box-shadow: none;
+    }
+    /* tab text */
+    .ccl-pagetabs li h2 {
+        color: var(--color_text);
+    }
+    /* inactive tab */
+    ul.ccl-pagetabs li a:hover {
+        background-color: var(--color_overlay_hover);
+    }
+    /* inactive tab text */
+    ul.ccl-pagetabs li a, ul.ccl-pagetabs li a:active, ul.ccl-pagetabs li a:visited, ul.ccl-pagetabs li a:hover {
+        color: var(--color_text_dark);
+    }
+    
+    /* filter selector */
+    div.checkbox-selector .switcher, .dropDownFilter .switcher {
+        color: var(--color_text_dark);
+    }
+    /* ... arrow */
+    div.checkbox-selector .switcher > img, .dropDownFilter .switcher > img {
+        filter: invert(100%);
+    }
+    /* ... hover */
+    .ccl-gridtoolbar .itemsright > li .checkbox-selector:hover .switcher, .ccl-gridtoolbar .itemsright > li .dropDownFilter:hover .switcher {
+        background-color: var(--color_overlay_hover);
+    }
+    /* ... options items */
+    .toolbar .checkbox-selector > div, .checkbox-selector > div {
+        background-color: var(--color_background_12dp);
+        border: none;
+    }
+    
+    /* Card list */
+    /* admins card */
+    .ccl-accordion-section {
+        background-color: var(--color_background_03dp);
+        border-color: var(--color_seperator);
+    }
+    /* card title */
+    .ccl-accordion-section-header, .ccl-accordion-expanded-section-header, .ccl-accordion-unfoldable-section-header {
+        color: var(--color_text);
+    }
+    /* person card */
+    .ccl-responsivegrid .cardview .gridrow .gridcolumn {
+        background-color: var(--color_background_12dp);
+    }
+    
+    
+    /*====================
+     * Calendar page
+     *==================== */
+    /* Header bar */
+    body.l-has-modernpagetabs .page-header-wrapper {
+        background-color: var(--color_background_header_course);
+    }
+    
+    /* side bar text */
+    .itsl-calendar-filter-bar label.itsl-selectable-color-item {
+        color: var(--color_text_dark);
+    }
+    /* my calendar title */
+    .itsl-calendar-filter-bar > div > .ccl-expandable-container-expander > span {
+        color: var(--color_text);
+    }
+    /* hide sidebar button */
+    .itsl-calendar-schedule-show-calendars-link > span, .ccl-gridtoolbar .itemsleft .ccl-iconlink.itsl-calendar-schedule-show-calendars-link:not(.ccl-button) > span {
+        color: var(--color_text);
+    }
+    /* ... icon */
+    .itsl-calendar-schedule-show-calendars-link > img {
+        filter: invert(70%);
+    }
+    /* ... hover */
+    .ccl-gridtoolbar .itemsleft > li:not(.disabled):hover a.ccl-iconlink:not(.ccl-button):not(.ccl-dropdownmenu-targetlink):enabled, .ccl-gridtoolbar .itemsleft > li:not(.disabled):hover button.ccl-iconbutton:not(.ccl-button):not(.ccl-dropdownmenu-targetlink):enabled {
+        background-color: var(--color_button);
+    }
+    /* sidebar dropdown arrow */
+    .fc-list-day-item .expanded .itsl-calendar-expandable-arrow, .itsl-calendar-filter-bar .expanded .itsl-calendar-expandable-arrow,
+    .itsl-calendar-filter-list-header > button > img {
+        filter: invert(100%);
+    }
+    
+    /* search icon */
+    .ccl-gridtoolbar ul.itemsleft > li > .ccl-iconlink > img {
+        filter: invert(70%);
+    }
+    
+    /* show weekend checkbox */
+    .ccl-checkbox-label {
+        color: var(--color_text_dark);
+    }
+    
+    /* week switcher */
+    a.itsl-calendar-nav-button,
+    a.itsl-calendar-nav-button.disabled {
+        color: var(--color_text_dark);
+    }
+    
+    /* current date title */
+    .itsl-calendar-highlite-date {
+        color: var(--color_text);
+    }
+    
+    /* time table */
+    .fc-view thead,
+    .fc .fc-week-number {
+        background-color: var(--color_card);
+    }
+    /* ... border color */
+    .fc-widget-header, .fc-widget-content {
+        border-color: var(--color_seperator);
+    }
+    
+    /* date dialog */
+    .itsl-calendar-schedule-dialog.ccl-context-dialog {
+        background-color: var(--color_background_12dp);
+    }
+    /* ... dialog arrow right */
+    .itsl-calendar-schedule-dialog.ccl-context-dialog.show-arrow.right > .ccl-context-dialog-arrow::after {
+        border-right-color: var(--color_background_12dp);
+    }
+    /* ... dialog arrow left */
+    .itsl-calendar-schedule-dialog.ccl-context-dialog.show-arrow.left > .ccl-context-dialog-arrow::after {
+        border-left-color: var(--color_background_12dp);
+    }
+    /* ... title */
+    .itsl-calendar-schedule-dialog.ccl-context-dialog .ccl-context-dialog-header h2, .itsl-calendar-schedule-dialog.ccl-context-dialog .ccl-context-dialog-header .itsl-calendar-schedule-dialog-contentarea-selectwrapper > select {
+        color: var(--color_text);
+    }
+    /* ... subtitle */
+    .itsl-calendar-schedule-dialog-title-label, .itsl-calendar-schedule-dialog-description-label, .itsl-calendar-schedule-dialog-api-description-label, .itsl-calendar-schedule-dialog-extra-description-header, .itsl-calendar-schedule-dialog-previous-event-extra-description-label, .itsl-calendar-schedule-dialog-selfregistration-label {
+        color: var(--color_text_dark);
+    }
+    /* time table dialog resources */
+    .itsl-calendar-genericlist.itsl-calendar-elementlist > li > .itsl-calendar-elementlist-item-container,
+    .itsl-calendar-schedule-dialog.ccl-context-dialog .itsl-calendar-schedule-dialog-text-container-editable, .itsl-calendar-schedule-dialog.ccl-context-dialog .itsl-plan-details-container .itsl-single-plan-element {
+        background-color: var(--color_button);
+        border-color: var(--color_seperator);
+    }
+    /* ... hover */
+    .itsl-calendar-genericlist.itsl-calendar-elementlist:not(.itsl-calendar-genericlist-inactive) > li > .itsl-calendar-elementlist-item-container:hover,
+    .itsl-calendar-schedule-dialog.ccl-context-dialog .itsl-plan-details-container .itsl-single-plan-element:not(.itsl-single-plan-elements-inactive):hover {
+        background-color: var(--color_overlay_hover);
+        border-color: var(--color_seperator);
+    }
+    /* ... seperator */
+    .itsl-single-plan:not(:last-child) {
+        border-color: var(--color_seperator);
+    }
+    /* ... resource name */
+    .itsl-calendar-elementlist > li > .itsl-calendar-elementlist-item-container > a > .itsl-calendar-elementlist-title, .itsl-calendar-elementlist > li > .itsl-calendar-elementlist-item-container > span > .itsl-calendar-elementlist-title, .itsl-calendar-elementlist > li > .itsl-calendar-elementlist-item-container > a > div > .itsl-calendar-elementlist-title, .itsl-calendar-elementlist > li > .itsl-calendar-elementlist-item-container > span > div > .itsl-calendar-elementlist-title {
+        color: var(--color_text);
+    }
+    /* ... title */
+    .ccl-expandable-container.itsl-calendar-event-expandable-section > .ccl-expandable-container-header,
+    .ili-color-default {
+        color: var(--color_text);
+    }
+    /* time table dialog plans */
+    .ccl-expandable-container.itsl-calendar-event-expandable-section > .ccl-expandable-container-content .itsl-plan-details-header {
+        background-color: var(--color_button);
+    }
+    /* ... text color */
+    .ccl-expandable-container.itsl-calendar-event-expandable-section > .ccl-expandable-container-content .itsl-plan-details-header > button > span, .ccl-expandable-container.itsl-calendar-event-expandable-section > .ccl-expandable-container-content .itsl-plan-details-header .ili-planner {
+        color: var(--color_text);
+    }
+    /* ... scroll shadow top */
+    .ccl-context-dialog-content-edge-top::before {
+        background-image: linear-gradient(var(--color_background_12dp),rgba(255,255,255,0));
+    }
+    /* ... scroll shadow bottom */
+    .ccl-context-dialog-content-edge-bottom::before {
+        background-image: linear-gradient(rgba(255,255,255,0),var(--color_background_12dp));
+    }
+    
+    /* Plans list view heads */
+    .itsl-aggr-planner-course-plans .itsl-aggr-planner-expander{
+        background-color: var(--color_overlay);
+        color: var(--color_text);
+    }
+    /* ... title */
+    .itsl-aggr-planner-course-plans .itsl-aggr-planner-expander .itsl-aggr-planner-expanderlink {
+        color: var(--color_text);
+    }
+    
+    /*----------
+     * Search page */
+    /* text boxes */
+    .formtable table tr td textarea, .formtable table tr td input[type="text"]:not(.ui-autocomplete-input), .formtable table tr td input[type="password"],
+    .ccl-formsection-ol input[type="text"] {
+        background-color: var(--color_input_box);
+        border: none;
+        color: var(--color_text);
+    }
+    /* ... label */
+    .formtable table tr td label.itsl-form-label, div.assessment-records span label.itsl-form-label, .ccl-formpanel label.itsl-form-label, .ccl-formpanel span.itsl-form-label,
+    .ccl-formcontainer .ccl-formpanel-descriptionlabel {
+        color: var(--color_text);
+    }
+    /* ... icon */
+    .datetimepicker-popup-link > img {
+        filter: invert(70%);
+    }
+    
+    /* date picker */
+    .ui-datepicker {
+        background-color: var(--color_background_12dp);
+    }
+    /* ... icon */
+    .ccl-datepicker .ui-datepicker-trigger {
+        filter: invert(70%);
+    }
+    /* ... day text */
+    .ui-datepicker table td a, .ui-datepicker table td span {
+        color: var(--color_text_dark);
+    }
+    /* ... buttons */
+    .ui-datepicker .ui-datepicker-buttonpane button {
+        background-color: var(--color_button);
+        color: var(--color_text);
+        border-color: var(--color_seperator);
+    }
+    
+    /* calendar picker */
+    .ccl-formpanel select {
+        background-color: var(--color_input_box);
+        border-color: var(--color_seperator);
+    }
+    /* ... options */
+    .ccl-formpanel select > option {
+        background-color: var(--color_background_12dp);
+        color: var(--color_text);
+    }
+    
+    
+    /*====================
+     * Profile dialog
+     *==================== */
+    .c-profileCard__window,
+    .o-tabcontrol__menu {
+        background-color: var(--color_background_08dp);
+        border-color: var(--color_seperator);
+    }
+    
+    /* tab text */
+    .o-tabcontrol__menuitem a, .o-tabcontrol__menuitem a:hover {
+        color: var(--color_text);
+    }
+    
+    /* relation text */
+    .c-profileCard__about .c-profileCard__label {
+        color: var(--color_text);
+    }
+    
+    /* close button */
+    .c-modal__cross {
+        color: var(--color_text) !important;
+    }
+    .c-modal__cross:focus, .c-modal__cross:hover {
+        color: var(--color_text_dark) !important;
+    }
+    
+    /* messages */
+    .o-tabcontrol__page.c-profileCard__messagePage {
+        background-color: var(--color_background_08dp);
+        border-color: var(--color_seperator);
+    }
+    /* collapsed root border */
+    .c-profileCard--imcollapsed .o-tabcontrol__page {
+        border-color: var(--color_seperator);
+    }
+    /* title */
+    .c-profileCard__messages-collapser-container > li > h2 {
+        color: var(--color_text) !important;
+    }
+    /* message area */
+    .c-profileCard .c-messages {
+        background: var(--color_background_08dp);
+    }
+    
+    
+    /*====================
+     * Messages
+     *==================== */
+    /* header */
+    .c-messages__header,
+    .c-messages,
+    .c-messages.c-modal .sidebar,
+    .c-messages__new > .c-messages__body {
+        background-color: var(--color_background_08dp);
+        border-color: var(--color_seperator);
+    }
+    /* parent background */
+    .c-secondary-nav {
+        background-color: var(--color_background_08dp);
+    }
+    /* header title */
+    .c-messages__header > .c-messages__heading, .c-messages__header > .c-messages__heading-new-message {
+        color: var(--color_text);
+    }
+    
+    /* messages list */
+    .o-list-ui, .o-list-ui > li, .o-list-ui__item {
+        border-color: var(--color_seperator);
+    }
+    /* ... item hover */
+    .c-messages__threads .c-list-ui__link:focus, .c-messages__threads .c-list-ui__link:hover {
+        background: var(--color_overlay_hover);
+    }
+    /* message sender name */
+    .c-messages__metadata > .c-messages__thread_name {
+        color: var(--color_text);
+    }
+    /* ... timestamp */
+    .c-messages__metadata > .c-conversation__createdRelative, .c-messages__metadata > .c-messages__thread_timeStamp {
+        color: var(--color_text_dark);
+    }
+    /* message preview */
+    .c-messages__threads .c-messages__threadpreview .c-messages__thread_textpreview {
+        color: var(--color_text_dark);
+    }
+    /* selected chat */
+    .o-list-ui__item--selected,
+    .c-messages__threads .o-list-ui__item--selected .c-list-ui__link {
+        background-color: var(--color_button_active) !important;
+    }
+    /* ... sender name */
+    .c-messages__threads .o-list-ui__item--selected .c-list-ui__link .c-messages__thread_name, .c-messages__threads .o-list-ui__item--selected .c-list-ui__link .c-messages__thread_textpreview, .c-messages__threads .o-list-ui__item--selected .c-list-ui__link .c-messages__thread_textpreview--system_message {
+        color: var(--color_text) !important;
+    }
+    /* ... timestamp */
+    .c-messages__threads .o-list-ui__item--selected .c-list-ui__link .c-messages__thread_timeStamp {
+        color: var(--color_text_dark) !important;
+    }
+    
+    /* button show all messages */
+    .c-modern__button--cancel > span {
+        background-color: var(--color_button);
+        border-color: var(--color_seperator);
+        color: var(--color_text);
+    }
+    /* ... hover */
+    .c-modern__button--cancel:hover:not(:disabled) > span {
+        background-color: var(--color_background_24dp);
+        border-color: var(--color_background_24dp);
+    }
+    
+    /* conversation header title */
+    .c-messages__header > .c-messages__header-thread_name .group-thread-name--placeholderGroup, .c-messages__header > .c-messages__header-thread_name > .group-thread-name {
+        color: var(--color_text);
+    }
+    /* ... arrow */
+    .c-messages__header .c-messages__header-chevron-down button {
+        filter: invert(100%);
+    }
+    
+    /* message component */
+    .c-conversationcomponent .c-message {
+        background: var(--color_background_08dp);
+    }
+    /* ... hover */
+    .c-conversationcomponent .c-message:hover {
+        background-color: rgba(255,255,255,0.01);
+    }
+    /* ... sender */
+    .c-messages__metadata > .c-conversation__createdBy {
+        color: var(--color_text);
+    }
+    /* .. text content */
+    .c-conversationcomponent .c-conversation__text {
+        color: var(--color_text_dark);
+    }
+    /* message option dropdown */
+    .c-conversationcomponent .ccl-dropdownmenu .c-dropdownmenu--item:hover {
+        background-color: var(--color_overlay_hover);
+    }
+    
+    /* forward message */
+    .c-messages [name="c-messages__add-recipients"] .c-avatar__course_name, .c-messages [name="c-messages__add-recipients"] .c-avatar__recipient_name, .c-messages [name="c-messages__new-recipients"] .c-avatar__course_name, .c-messages [name="c-messages__new-recipients"] .c-avatar__recipient_name {
+        color: var(--color_text);
+    }
+    
+    /* footer */
+    .c-messages__footer {
+        background-color: var(--color_background_08dp);
+        border-color: var(--color_seperator);
+    }
+    /* message field */
+    .c-messages .compose-input-wrapper > .instant-message-editor {
+        background-color: var(--color_input_box);
+        border-color: var(--color_seperator);
+    }
+    /* ... focused border */
+    .c-messages .compose-input-wrapper > .instant-message-editor:focus {
+        border-color: var(--color_focus);
+    }
+    /* ... text */
+    .c-messages .compose-input-wrapper > .instant-message-editor-placeholder {
+        color: var(--color_text_dark);
+    }
+    /* send button disabled */
+    .c-modern__button:disabled > span {
+        background-color: var(--color_button);
+        border-color: var(--color_seperator);
+        color: var(--color_text_dark);
+    }
+    /* emoji picker */
+    .itsl-emojiPicker {
+        background-color: var(--color_background_16dp);
+        border: none;
+    }
+    /* ... header */
+    .itsl-header-emoji-icons {
+        background-color: var(--color_background_16dp);
+        box-shadow: none;
+        border-color: var(--color_seperator);
+    }
+    /* ... arrow */
+    .c-conversationcomponent .compose-input-wrapper .itsl-emojiPicker::after {
+        border-color: var(--color_background_16dp);
+    }
+    
+    /* message search box */
+    .selectize-control.single .selectize-input.input-active, .selectize-input {
+        background: var(--color_input_box);
+        border: none;
+        color: var(--color_text);
+    }
+    /* ... input */
+    .selectize-dropdown, .selectize-input, .selectize-input input,
+    .c-messages [name="c-messages__new-recipients"] > .selectize-control .selectize-input input::placeholder {
+        color: var(--color_text);
+    }
+    /* search result dialog */
+    .selectize-dropdown, .selectize-dropdown.form-control,
+    .selectize-dropdown .optgroup-header,
+    .c-messages_search > div > .selectize-control > .selectize-dropdown > .selectize-dropdown-content > .optgroup > .optgroup-header > .label {
+        background: var(--color_background_16dp);
+        color: var(--color_text);
+    }
+    /* ... hover/active */
+    .selectize-dropdown .active {
+        background-color: var(--color_overlay_hover);
+        color: var(--color_text);
+    }
+    /* filter div */
+    .selectize-control.multi .selectize-input > div {
+        background: var(--color_overlay);
+        color: var(--color_text_dark);
+    }
+    
+    
+    /*====================
+     * Notification Dialog
+     *==================== */
+    /* root box */
+    .itsl-notifications-popup-container {
+        background: var(--color_background_12dp);
+    }
+    /* ... title */
+    .itsl-notifications-popup-container > h3 {
+        color: var(--color_text);
+    }
+    /* footer */
+    .itsl-notifications-popup-footer-box {
+        background-color: var(--color_background_12dp) !important;
+        border-color: var(--color_seperator);
+    }
+    
+    /* notification sender text */
+    .itsl-widget-content-ul span.itsl-widget-extrainfo a, .itsl-widget-content-ul a.itsl-widget-personname {
+        color: var(--color_text);
+    }
+    /* ... hover */
+    .itsl-widget-content-ul span.itsl-widget-extrainfo a:hover, .itsl-widget-content-ul a.itsl-widget-personname:hover {
+        color: var(--color_anchor);
+    }
+    
+    /* unread notification */
+    .itsl-notification-item-unread {
+        background-color: var(--color_overlay);
+    }
+    
+    
+    /*====================
+     * Resource view page
+     *==================== */
+    /* header */
+    .itsl-play-plan-dialog-container .itsl-play-plan-dialog-header,
+    .itsl-play-plan-dialog-container .itsl-play-plan-dialog-header .itsl-play-plan-dialog-navigation-container {
+        background-color: var(--color_background_header);
+        border: none;
+    }
+    /* control buttons */
+    .itsl-play-plan-dialog-container .itsl-play-plan-dialog-prev-button, .itsl-play-plan-dialog-container .itsl-play-plan-dialog-next-button, .itsl-play-plan-dialog-container .itsl-play-plan-dialog-index-button, .itsl-play-plan-dialog-container .itsl-play-plan-dialog-close-button {
+        color: var(--color_text);
+        border-color: var(--color_seperator);
+    }
+    /* show all dropdown menu */
+    .ccl-context-dialog {
+        background-color: var(--color_background_06dp);
+    }
+    /* list item hover */
+    .itsl-play-plan-dialog-container .itsl-play-plan-index-list .itsl-play-plan-index-item:hover {
+        background-color: var(--color_overlay_hover);
+    }
+    /* list items text color */
+    .itsl-play-plan-dialog-container .itsl-play-plan-index-list .itsl-play-plan-index-item a {
+        color: var(--color_text);
+    }
+    
+    /* file name title */
+    h1.ccl-pageheader, h1.ccl-pageheader > span, h1.ccl-pageheader input.ccl-pageheader-title-editor {
+        color: var(--color_text);
+    }
+    
+    /* remove empty space */
+    .ccl-pageheader {
+        margin: 0;
+    }
+    header .h-mrb10 {
+        margin: 0 !important;
+    }
+    
+    /*----------
+     * Task resource */
+    .itsl-play-plan-dialog-container .itsl-play-plan-dialog-content {
+        background-color: var(--color_background_00dp);
+    }
+    /* task card */
+    .h-box {
+        background-color: var(--color_card) !important;
+        border: none;
+    }
+    /* ... title */
+    .ccl-ext-item h2 {
+        color: var(--color_text);
+    }
+    /* ... file card */
+    .ccl-fl-item {
+        background-color: var(--color_background_03dp);
+        border-color: var(--color_seperator);
+    }
+    .ccl-fl-item:hover {
+        background-color: var(--color_overlay_hover);
+        border-color: var(--color_seperator);
+    }
+    /** file name */
+    .ccl-fl-item-details-text-file-name-uploaded,
+    .ccl-fl-item-details-text-file-extension-uploaded {
+        color: var(--color_text);
+    }
+    /* file dropdown menu */
+    .ccl-fl-context-menu-ellipsis > span {
+        color: var(--color_text_dark);
+    }
+    /* ... context menu */
+    .ccl-fl-context-menu-dialog,
+    .ccl-fl-context-menu-dialog-content-item {
+        background-color: var(--color_background_12dp);
+        border-color: var(--color_seperator);
+        color: var(--color_text);
+    }
+    .ccl-fl-context-menu-dialog-content-item:hover {
+        background-color: var(--color_overlay_hover);
+    }
+    
+    /* side menu */
+    .itsl-lte-settings-wrapper,
+    .itsl-lte-view-summary .itsl-lte-settings-overlay-dialog-footer, .itsl-lte-view-overlayread .itsl-lte-settings-overlay-dialog-footer, .itsl-lte-view-overlayedit .itsl-lte-settings-overlay-dialog-footer,
+    .itsl-lte-settings {
+        background-color: var(--color_background_00dp);
+        border-color: var(--color_seperator) !important;
+    }
+    .itsl-lte-view-overlayedit .itsl-lte-settings-overlay-dialog-footer-button-container, .itsl-lte-view-overlayread .itsl-lte-settings-overlay-dialog-footer-button-container {
+        border-color: var(--color_seperator);
+    }
+    /* collapse text */
+    .itsl-lte-settings-overlay-dialog-collapse .ili, .itsl-lte-settings-overlay-dialog-expand .ili,
+    .itsl-lte-settings-overlay-dialog-collapse, .itsl-lte-settings-overlay-dialog-expand {
+        color: var(--color_text_dark);
+    }
+    /* titles */
+    .itsl-lte-view-overlayread .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-text, .itsl-lte-view-overlayedit .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-text {
+        color: var(--color_text_dark);
+    }
+    .itsl-lte-view-overlayread .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon > svg .mainColor, .itsl-lte-view-overlayedit .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon > svg .mainColor,
+    .itsl-lte-view-overlayread .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon path {
+        fill: var(--color_text_dark);
+    }
+    
+    /* reader button */
+    .prom-button__basic > .prom-button__text {
+        background-color: var(--color_button);
+    }
+    
+    
+    /*====================
+     * Library page
+     *==================== */
+    /* Search box */
+    .il-search-header .il-search .il-search-box .il-searchtextbox,
+    .il-search-header .il-search .il-search-box button.il-search-submit.disabled {
+        background-color: var(--color_input_box);
+    }
+    /* fix white text in search box */
+    .il-search-moved .il-search .il-search-box .il-searchtextbox {
+        color: #000;
+    }
+    
+    }

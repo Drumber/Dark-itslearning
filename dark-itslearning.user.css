@@ -1,12 +1,19 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.2.0
+@version        0.2.1
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
-@advanced color accent-color "Accent color" #393939
+@advanced color accent-color "Accent color" #bfbfbf
 @advanced color link-color "Link color" #2895ff
+@advanced color focus-color "Focus color" #044380
+@advanced dropdown dim-cards "Dim event/course cards" {
+  enable "Enable" <<<EOT
+  brightness(70%) contrast(150%) EOT;
+  disable "Disable" <<<EOT
+  none EOT;
+}
 @preprocessor   uso
 ==/UserStyle== */
 
@@ -28,14 +35,15 @@
         --color_background_16dp: #363636;
         --color_background_24dp: #393939;
         
-        --color_primary: /*[[accent-color]]*/;
+        --color_primary: #393939;
         --color_primary_light: #5e5e5e;
         --color_primary_dark: #2f2f2f;
         
         --color_text: #ffffff;
         --color_text_dark: #dcdcdc;
+        --color_text_accent: /*[[accent-color]]*/;
         --color_anchor: /*[[link-color]]*/;
-        --color_focus: rgb(4, 67, 128);
+        --color_focus: /*[[focus-color]]*/;
         
         --color_overlay: rgba(255, 255, 255, 0.1);
         --color_seperator: var(--color_overlay);
@@ -81,6 +89,10 @@
         border-color: var(--color_seperator);
     }
     
+    .h-color-link-default {
+        color: var(--color_anchor) !important;
+    }
+    
     /* card header text */
     .itsl-cb-stream-item-header,
     .il-widget-titleBlock > h2 {
@@ -98,6 +110,10 @@
     /* show more seperator line */
     .ccl-textexpander-line {
         border-color: var(--color_seperator);
+    }
+    /* show more text */
+    .ccl-textexpander-container > button {
+        color: var(--color_anchor);
     }
     
     /* link less focus */
@@ -139,10 +155,14 @@
         border-color: var(--color_seperator);
         color: var(--color_text);
     }
+    select:focus,
+    .formtable table tr td select:focus {
+        border-color: var(--color_focus) !important;
+    }
     select > option,
     .formtable table tr td select > option {
         background-color: var(--color_background_dropdown);
-        color: var(--color_text);
+        color: var(--color_text) !important;
     }
     
     /* button */
@@ -159,6 +179,17 @@
     .l-topmenu-searchbox .ccl-searchtextbox-personalmenu input {
         background-color: var(--color_input_box);
         border-color: var(--color_seperator) !important;
+    }
+    
+    /* text area */
+    textarea {
+        background-color: var(--color_input_box);
+        border: none;
+    }
+    
+    /* form header */
+    .ccl-formcontainer h2.ccl-formsection-titleheader {
+        color: var(--color_text);
     }
     
     
@@ -219,17 +250,6 @@
         color: var(--color_text);
     }
     
-    /* text area */
-    textarea {
-        background-color: var(--color_input_box);
-        border: none;
-    }
-    
-    /* form header */
-    .ccl-formcontainer h2.ccl-formsection-titleheader {
-        color: var(--color_text);
-    }
-    
     
     /*====================
      * Login page
@@ -277,10 +297,31 @@
     .itsl-homepagetabs-tab:not(.active):hover > span {
         background-color: var(--color_primary_light);
     }
+    /* ... focus */
+    .itsl-homepagetabs-tab:focus {
+        border-color: var(--color_focus);
+    }
     /* active header button */
     .itsl-homepagetabs-tab.active > span, .itsl-homepagetabs-tab:active > span {
         background-color: var(--color_primary);
         color: var(--color_text);
+    }
+    
+    /* Course cards */
+    .coursecards-list > li {
+        filter: /*[[dim-cards]]*/;
+    }
+    /* ... search field */
+    .search-input__input::placeholder,
+    .search-input__input:focus::placeholder {
+        color: var(--color_text_dark);
+    }
+    .search-input__input {
+        border-bottom-color: var(--color_text_dark);
+    }
+    /* ... focus */
+    .coursecards__focusedsearch {
+        border-color: var(--color_focus);
     }
     
     /* Updates Cards */
@@ -444,10 +485,35 @@
     .l-main-content-header {
         background-color: var(--color_background_header_course);
     }
+    /* ... course name */
+    .l-main-content-heading {
+        color: var(--color_text_accent);
+    }
+    /* ... nav text active */
+    .l-main-content-nav > li > a.active {
+        color: var(--color_text_accent);
+        border-bottom-color: var(--color_text_accent);
+    }
+    /* ... nav text */
+    .l-main-content-nav > li > a:link, .l-main-content-nav > li > a:visited {
+        color: var(--color_text_accent);
+    }
+    .l-main-content-nav > li > a:hover {
+        color: var(--color_text_accent);
+        filter: brightness(90%);
+    }
     
     /* More Dropdown */
     #main-content-nav-more {
         background-color: var(--color_background_08dp);
+    }
+    /* ... text */
+    #main-content-nav-more > li > a, #main-content-nav-more > li > button {
+        color: var(--color_text_accent);
+    }
+    #main-content-nav-more > li > a:hover, #main-content-nav-more > li > button:hover {
+        color: var(--color_text_accent);
+        filter: brightness(90%);
     }
     
     /* Tasks title color */
@@ -469,6 +535,10 @@
     }
     .prom-collapsible-list__button:hover .prom-collapsible-list__innerbutton {
         background-color: var(--color_button_active) !important;
+    }
+    /* ... focus */
+    .prom-collapsible-list__button:focus {
+        border-color: var(--color_focus);
     }
     /* ... seperator */
     .prom-collapsible-list__buttonwrapper::before {
@@ -492,6 +562,10 @@
     }
     .tasklist2__taskitem:hover .tasklist2__task {
         border-color: var(--color_seperator);
+    }
+    /* ... focus */
+    .tasklist2__taskitem:focus .tasklist2__taskwrapper {
+        border-color: var(--color_focus);
     }
     /* ... text */
     .tasklist2__task > span {
@@ -619,6 +693,14 @@
     .itsl-planner .itsl-topic .itsl-topic-expander .itsl-topic-expander-link::before {
         filter: invert(100%);
     }
+    /* ... expand plan text */
+    .itsl-planner .itsl-topic .itsl-topic-expander .itsl-topic-expander-link {
+        color: var(--color_anchor);
+    }
+    /* ... title */
+    .itsl-planner .itsl-topic .itsl-topic-title h2 {
+        color: var(--color_text);
+    }
     
     /* Table-List switch */
     a.ccl-multipleswitcher-button.active, a.ccl-multipleswitcher-button:hover {
@@ -725,6 +807,11 @@
     }
     /* ... clicked */
     .treemenu-viewport .ccl-treemenu a.jstree-clicked {
+        color: var(--color_anchor);
+    }
+    
+    /* resource publisher name */
+    .il-publishedby a, .il-publishedby a:link, .il-publishedby a:active, .il-publishedby a:visited, .il-publishedby a:hover {
         color: var(--color_anchor);
     }
     
@@ -835,6 +922,10 @@
     a.cke_path_item, span.cke_path_empty {
         text-shadow: none;
     }
+    /* show more options button */
+    .cke_reset_all, .cke_reset_all *, .cke_reset_all a, .cke_reset_all textarea {
+        color: var(--color_text_dark);
+    }
     /* text options */
     .cke_1 .cke_combo_button,
     .cke_1 .cke_toolgroup {
@@ -863,7 +954,7 @@
         border: none;
         background-color: var(--color_background_12dp);
     }
-    /* ,,, hover */
+    /* ... hover */
     .cke_1 a.cke_combo_button:hover, .cke_1 a.cke_combo_button:focus, .cke_1 .cke_combo_on a.cke_combo_button {
         background: var(--color_overlay_hover);
         border-color: var(--color_seperator);
@@ -888,6 +979,19 @@
     #ccl-uc-dropzone-text,
     .ccl-uc-dropzone-container .ili {
         color: var(--color_text);
+    }
+    
+    /* side menu collapsed buttons */
+    .itsl-lte-view-summary .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon:hover, .itsl-lte-view-summary .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon:focus {
+        background-color: var(--color_overlay_hover);
+        border-color: var(--color_overlay_hover);
+    }
+    /* ... icons */
+    .itsl-lte-view-summary .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon.itsl-lte-setting-header-less-opacity-icon > svg .mainColor {
+        fill: var(--color_text_dark);
+    }
+    .itsl-lte-view-summary .itsl-lte-setting-section .itsl-lte-setting-header .itsl-lte-setting-header-icon path {
+        fill: var(--color_text) !important;
     }
     
     /* file drop zone */
@@ -988,6 +1092,19 @@
     body.l-has-modernpagetabs .page-header-wrapper {
         background-color: var(--color_background_header_course);
     }
+    /* ... title */
+    body.l-has-modernpagetabs .page-header-wrapper > div .ccl-pageheader > span {
+        color: var(--color_text_accent);
+    }
+    /* ... text */
+    .ccl-modernpagetabs-container .ccl-modernpagetabs-content > li.ccl-modernpagetabs-activetab > a:link, .ccl-modernpagetabs-container .ccl-modernpagetabs-content > li.ccl-modernpagetabs-activetab > a:visited,
+    .ccl-modernpagetabs-content > li > a:link, .ccl-modernpagetabs-mobilemenubutton > a:link, .ccl-modernpagetabs-content > li > a:visited, .ccl-modernpagetabs-mobilemenubutton > a:visited {
+        color: var(--color_text_accent);
+    }
+    /* ... active indicator */
+    .ccl-modernpagetabs-container .ccl-modernpagetabs-content > li.ccl-modernpagetabs-activetab {
+        box-shadow: 0 -3px 0 var(--color_text_accent) inset;
+    }
     
     /* side bar text */
     .itsl-calendar-filter-bar label.itsl-selectable-color-item {
@@ -1044,6 +1161,10 @@
     /* ... border color */
     .fc-widget-header, .fc-widget-content {
         border-color: var(--color_seperator);
+    }
+    /* ... dim event cards */
+    .fc-event {
+        filter: /*[[dim-cards]]*/;
     }
     
     /* date dialog */
@@ -1233,6 +1354,11 @@
     .c-messages__header > .c-messages__heading, .c-messages__header > .c-messages__heading-new-message {
         color: var(--color_text);
     }
+    /* new button focus */
+    .c-modern__button:focus:not(:disabled) {
+        background: var(--color_overlay_hover);
+        border-color: var(--color_focus);
+    }
     
     /* messages list */
     .o-list-ui, .o-list-ui > li, .o-list-ui__item {
@@ -1410,10 +1536,38 @@
     .itsl-widget-content-ul span.itsl-widget-extrainfo a:hover, .itsl-widget-content-ul a.itsl-widget-personname:hover {
         color: var(--color_anchor);
     }
+    /* ... visited */
+    .itsl-widget-content-ul span.itsl-widget-extrainfo a:visited, .itsl-widget-content-ul a.itsl-widget-personname:visited {
+        color: var(--color_text_accent);
+    }
     
     /* unread notification */
     .itsl-notification-item-unread {
         background-color: var(--color_overlay);
+    }
+    
+    /* read notification text */
+    .itsl-widget-content-ul span:not(.itsl-widget-extrainfo) a:not(.itsl-widget-personname):not(.itsl-widget-boldlink):visited {
+        color: var(--color_text_accent) !important;
+    }
+    /* unread notification text */
+    .itsl-widget-content-ul span:not(.itsl-widget-extrainfo) a:not(.itsl-widget-personname):not(.itsl-widget-boldlink) {
+        color: var(--color_anchor) !important;
+    }
+    /* ... hover */
+    .itsl-widget-content-ul span:not(.itsl-widget-extrainfo) a:not(.itsl-widget-personname):not(.itsl-widget-boldlink):hover,
+    .itsl-widget-content-ul span:not(.itsl-widget-extrainfo) a:not(.itsl-widget-personname):not(.itsl-widget-boldlink):hover {
+        filter: brightness(90%);
+    }
+    /* notification icon */
+    .itsl-notification-icon-container-small > img {
+        filter: invert(70%);
+    }
+    
+    /* mark all as read text hover */
+    .itsl-notifications-mark-all-link:hover {
+        color: var(--color_anchor);
+        filter: brightness(90%);
     }
     
     

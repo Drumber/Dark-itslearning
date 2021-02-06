@@ -1,11 +1,13 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.1.1
+@version        0.2.0
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
-@preprocessor   stylus
+@advanced color accent-color "Accent color" #393939
+@advanced color link-color "Link color" #2895ff
+@preprocessor   uso
 ==/UserStyle== */
 
 @-moz-document domain("itslearning.com") {
@@ -26,13 +28,13 @@
         --color_background_16dp: #363636;
         --color_background_24dp: #393939;
         
-        --color_primary: #393939;
+        --color_primary: /*[[accent-color]]*/;
         --color_primary_light: #5e5e5e;
         --color_primary_dark: #2f2f2f;
         
         --color_text: #ffffff;
         --color_text_dark: #dcdcdc;
-        --color_anchor: rgb(40, 149, 255);
+        --color_anchor: /*[[link-color]]*/;
         --color_focus: rgb(4, 67, 128);
         
         --color_overlay: rgba(255, 255, 255, 0.1);

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.2.1
+@version        0.2.2
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -1414,6 +1414,14 @@
     .c-messages__header .c-messages__header-chevron-down button {
         filter: invert(100%);
     }
+    /* group chat participant button */
+    .c-messages__header .participant-dropdown-list-button.participant-count button {
+        border-color: var(--color_seperator);
+    }
+    /* ... dropdown participant name */
+    .c-participant-list__item, .c-participant__name {
+        color: var(--color_text);
+    }
     
     /* message component */
     .c-conversationcomponent .c-message {
@@ -1697,4 +1705,4 @@
         color: #000;
     }
     
-    }
+}

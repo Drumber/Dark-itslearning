@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.2.2
+@version        0.2.3
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -1703,6 +1703,22 @@
     /* fix white text in search box */
     .il-search-moved .il-search .il-search-box .il-searchtextbox {
         color: #000;
+    }
+    
+    
+    /*====================
+     * Auto Logout dialog
+     *==================== */
+    .itsl-autologout-container .prom-modal__dialog {
+        background: var(--color_background_12dp);
+    }
+    /* ... title */
+    .itsl-autologout-container .prom-modal__heading {
+        color: var(--color_text);
+    }
+    /* ... text */
+    .itsl-autologout-container .prom-modal {
+        color: var(--color_text_dark);
     }
     
 }

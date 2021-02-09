@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.2.4
+@version        0.2.5
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -1369,7 +1369,8 @@
         background: var(--color_overlay_hover);
     }
     /* ... unread message */
-    .c-messages__threads .o-list-ui__item--unread .c-list-ui__link:focus, .c-messages__threads .o-list-ui__item--unread .c-list-ui__link:hover {
+    .c-messages__threads .o-list-ui__item--unread .c-list-ui__link:focus, .c-messages__threads .o-list-ui__item--unread .c-list-ui__link:hover,
+    .c-messages__threads .o-list-ui__item--unread .c-list-ui__link {
         background: var(--color_overlay_hover) !important;
     }
     /* ... unread message dot */

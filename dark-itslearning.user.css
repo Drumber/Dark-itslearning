@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.2.5
+@version        0.2.6
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -356,6 +356,63 @@
     /* events seperator */
     ul.itsl-widget-content-ul > li {
         border-color: var(--color_seperator);
+    }
+    
+    /* events preview dialog */
+    /* ... course title, date and time */
+    .itsl-cb-agenda-eventpreview-title,
+    .itsl-cb-agenda-eventpreview-daterange-headline {
+        color: var(--color_text);
+    }
+    /* ... close button */
+    .ccl-cssmodal.ccl-cssmodal-visualstyle-benevolent .ccl-cssmodal-modal-close > svg {
+        fill: var(--color_text_dark);
+    }
+    /* ... close icon hover */
+    .itsl-cb-agenda-eventpreview-header-toolbar > a:hover, .itsl-cb-agenda-eventpreview-header-toolbar > button:hover, .itsl-cb-agenda-eventpreview-header-toolbar > button.ccl-cssmodal-modal-close:hover {
+        background-color: var(--color_overlay_hover);
+    }
+    /* ... icons */
+    .itsl-cb-agenda-eventpreview-daterange-calendar,
+    .itsl-cb-agenda-eventpreview-daterange-clock {
+        filter: invert(70%);
+    }
+    /* ... event title */
+    .itsl-cb-agenda-eventpreview-event-title {
+        color: var(--color_text);
+    }
+    /* ... plans title */
+    .itsl-cb-agenda-eventpreview-date h4, .itsl-cb-agenda-eventpreview-text h4, .itsl-cb-agenda-eventpreview-resources h4, .itsl-cb-agenda-eventpreview-plans h4, .itsl-cb-agenda-eventpreview-self-registration h4, .itsl-cb-agenda-eventpreview-homework h4 {
+        color: var(--color_text_dark);
+    }
+    /* ... resources card */
+    .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header {
+        background-color: var(--color_background_08dp)
+    }
+    /* ... resource name */
+    .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header > button > span {
+        color: var(--color_text_dark);
+    }
+    /* ... dropdown, file icons */
+    .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header .ili-chevron-down::before, .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header .ili-forward::before,
+    .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header .ili-planner::before {
+        color: var(--color_text_dark);
+    }
+    /* ... anchor links */
+    .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header .itsl-plan-details-container a {
+        color: var(--color_anchor);
+    }
+    .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header .itsl-plan-details-container a:hover:not([disabled]) {
+        color: var(--color_anchor);
+        opacity: 0.9;
+    }
+    /* ... switch to calendar text */
+    .itsl-cb-agenda-eventpreview-showmore-container .itsl-cb-agenda-eventpreview-showmore {
+        color: var(--color_anchor);
+    }
+    .itsl-cb-agenda-eventpreview-showmore-container .itsl-cb-agenda-eventpreview-showmore:hover:not([disabled]) {
+        color: var(--color_anchor);
+        opacity: 0.9;
     }
     
     

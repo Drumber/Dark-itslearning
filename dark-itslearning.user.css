@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.2.6
+@version        0.2.7
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -1434,6 +1434,10 @@
     .c-messages__metadata .c-messages__thread_timeStamp--unread::after {
         background: var(--color_focus);
     }
+    /* ... editing message */
+    .c-messages__types--editing {
+        background: var(--color_overlay_hover) !important;
+    }
     /* message sender name */
     .c-messages__metadata > .c-messages__thread_name {
         color: var(--color_text);
@@ -1508,6 +1512,10 @@
     /* message option dropdown */
     .c-conversationcomponent .ccl-dropdownmenu .c-dropdownmenu--item:hover {
         background-color: var(--color_overlay_hover);
+    }
+    /* ... button focus */
+    .c-conversationcomponent .ccl-dropdownmenu .c-dropdownmenu--item-button:focus {
+        background-color: var(--color_button_active);
     }
     
     /* forward message */

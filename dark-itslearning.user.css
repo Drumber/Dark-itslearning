@@ -1,10 +1,11 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.2.7
+@version        0.3.0
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
+@license        CC-BY-NC-SA-4.0
 @advanced color accent-color "Accent color" #bfbfbf
 @advanced color link-color "Link color" #2895ff
 @advanced color focus-color "Focus color" #044380
@@ -13,6 +14,24 @@
   brightness(70%) contrast(150%) EOT;
   disable "Disable" <<<EOT
   none EOT;
+}
+@advanced dropdown theme "Theme" {
+   dark "Dark" <<<EOT
+--color_background_0: #191919;
+--color_background_1: #212121;
+--color_background_2: #282828;
+--color_background_3: #333333;
+--color_background_4: #363636;
+--color_background_5: #393939;
+--color_background_dark: #1A1A1A; EOT;
+   oceanic "Oceanic" <<<EOT
+--color_background_0: #263238;
+--color_background_1: #1E272C;
+--color_background_2: #2D383E;
+--color_background_3: #3C474C;
+--color_background_4: #424D52;
+--color_background_5: #475156;
+--color_background_dark: #141a1d; EOT;
 }
 @preprocessor   uso
 ==/UserStyle== */
@@ -24,20 +43,7 @@
      *==================== */
     :root {
         --color_black: #000000;
-        --color_background_00dp: #191919;
-        --color_background_01dp: #222222;
-        --color_background_02dp: #262626;
-        --color_background_03dp: #282828;
-        --color_background_04dp: #2A2A2A;
-        --color_background_06dp: #2F2F2F;
-        --color_background_08dp: #303030;
-        --color_background_12dp: #353535;
-        --color_background_16dp: #363636;
-        --color_background_24dp: #393939;
-        
-        --color_primary: #393939;
-        --color_primary_light: #5e5e5e;
-        --color_primary_dark: #2f2f2f;
+        /*[[theme]]*/
         
         --color_text: #ffffff;
         --color_text_dark: #dcdcdc;
@@ -45,18 +51,18 @@
         --color_anchor: /*[[link-color]]*/;
         --color_focus: /*[[focus-color]]*/;
         
-        --color_overlay: rgba(255, 255, 255, 0.1);
+        --color_overlay: rgba(255, 255, 255, 0.07);
         --color_seperator: var(--color_overlay);
         --color_overlay_hover: var(--color_overlay);
         --color_overlay_info: rgba(40, 149, 255, 0.1);
         
-        --color_background_header: var(--color_background_12dp);
-        --color_background_header_course: var(--color_background_08dp);
-        --color_background_dropdown: var(--color_background_08dp);
+        --color_background_header: var(--color_background_3);
+        --color_background_header_course: var(--color_background_2);
+        --color_background_dropdown: var(--color_background_2);
         
-        --color_button: var(--color_background_08dp);
-        --color_button_active: var(--color_background_12dp);
-        --color_card: var(--color_background_04dp);
+        --color_button: var(--color_background_2);
+        --color_button_active: var(--color_background_3);
+        --color_card: var(--color_background_1);
         --color_input_box: rgba(255, 255, 255, 0.1);
     }
     
@@ -172,7 +178,7 @@
     
     /* dialog */
     .dialog.svelte-5w1cwx {
-        background-color: var(--color_background_08dp);
+        background-color: var(--color_background_2);
     }
     
     /* search field */
@@ -285,7 +291,7 @@
     .itsl-homepagetabs-wrapper,
     .itsl-updatestab-wrapper,
     .coursecards {
-        background: var(--color_background_00dp) !important;
+        background: var(--color_background_0) !important;
         color: var(--color_text);
     }
     
@@ -295,7 +301,7 @@
         border: none;
     }
     .itsl-homepagetabs-tab:not(.active):hover > span {
-        background-color: var(--color_primary_light);
+        background-color: var(--color_background_5);
     }
     /* ... focus */
     .itsl-homepagetabs-tab:focus {
@@ -303,7 +309,7 @@
     }
     /* active header button */
     .itsl-homepagetabs-tab.active > span, .itsl-homepagetabs-tab:active > span {
-        background-color: var(--color_primary);
+        background-color: var(--color_background_3);
         color: var(--color_text);
     }
     
@@ -387,7 +393,7 @@
     }
     /* ... resources card */
     .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header {
-        background-color: var(--color_background_08dp)
+        background-color: var(--color_background_2)
     }
     /* ... resource name */
     .itsl-cb-agenda-eventpreview > .ccl-cssmodal-modal-inner .itsl-plan-details-header > button > span {
@@ -471,11 +477,47 @@
     }
     /* ... select options */
     .c-dropdownMenu__navigation .c-dropdown > select > option {
-        background-color: var(--color_background_12dp) !important;
+        background-color: var(--color_background_3) !important;
     }
     /* ... select arrow */
     .c-dropdownMenu__navigation .c-dropdown::after {
         color: var(--color_text);
+    }
+    
+    
+    /*====================
+     * Profile Sidebar
+     *==================== */
+    ul.l-personal-menu-dd {
+        background: var(--color_background_1)
+    }
+    /* Header */
+    .l-personal-menu-dd-header {
+        background-color: var(--color_background_dark)
+    }
+    /* Text */
+    .l-personal-menu-dd-header--close > span {
+        color: var(--color_text);
+    }
+    /* ...accent */
+    .l-personal-menu-dd-header--name {
+        color: var(--color_text_accent);
+    }
+    /* settings button */
+    a.l-personal-menu-dd-header--button:link > span, a.l-personal-menu-dd-header--button:active > span, a.l-personal-menu-dd-header--button:visited > span {
+        border-color: var(--color_button);
+        color: var(--color_text) !important;
+    }
+    /* ...hover */
+    a.l-personal-menu-dd-header--button:hover > span {
+        background-color: var(--color_button);
+    }
+    /* menu entries */
+    .l-personal-menu-dd > li > a > span {
+        color: var(--color_text);
+    }
+    .l-personal-menu-dd .l-dropdown-menu-item > a:hover {
+        background-color: var(--color_overlay);
     }
     
     
@@ -562,7 +604,7 @@
     
     /* More Dropdown */
     #main-content-nav-more {
-        background-color: var(--color_background_08dp);
+        background-color: var(--color_background_2);
     }
     /* ... text */
     #main-content-nav-more > li > a, #main-content-nav-more > li > button {
@@ -701,7 +743,7 @@
     }
     /* ... resource card */
     .itsl-single-plan .itsl-single-plan-elements .itsl-single-plan-element, .itsl-single-plan .itsl-single-plan-homework-elements .itsl-single-plan-element {
-        background-color: var(--color_background_08dp);
+        background-color: var(--color_background_2);
         border-color: var(--color_seperator);
     }
     .itsl-single-plan .itsl-single-plan-elements .itsl-single-plan-element:not(.itsl-single-plan-elements-inactive):hover, .itsl-single-plan .itsl-single-plan-homework-elements .itsl-single-plan-element:not(.itsl-single-plan-elements-inactive):hover {
@@ -810,7 +852,7 @@
     /* filter select box options background */
     body:not(.h-android) .ccl-gridtoolbar .itemsright select option,
     body:not(.h-android) .ccl-gridtoolbar .itemsright select optgroup {
-        background-color: var(--color_background_12dp) !important;
+        background-color: var(--color_background_3) !important;
     }
     
     /* TABLE */
@@ -844,7 +886,7 @@
     
     /* Plan description dialog */
     .ccl-cssmodal.ccl-cssmodal-visualstyle-benevolent > .ccl-cssmodal-modal-inner {
-        background: var(--color_background_12dp);
+        background: var(--color_background_3);
     }
     /* ... title */
     .ccl-cssmodal.ccl-cssmodal-visualstyle-benevolent > .ccl-cssmodal-modal-inner > .ccl-cssmodal-modal-header > h2 {
@@ -855,7 +897,7 @@
      * Resources page */
     /* side menu */
     .treemenu-viewport {
-        background-color: var(--color_background_01dp);
+        background-color: var(--color_background_1);
         border: none;
     }
     /* side menu text color */
@@ -879,7 +921,7 @@
     }
     /* search result dialog */
     .il-search + .il-search-liveresults {
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
         border: none;
     }
     /* search result item */
@@ -963,7 +1005,7 @@
     }
     /* ... options background */
     .ccl-pager > .page-size-chooser > select option {
-        background-color: var(--color_background_12dp) !important;
+        background-color: var(--color_background_3) !important;
     }
     
     /* Answer task text field */
@@ -972,7 +1014,7 @@
     }
     .cke_1 .cke_top,
     .cke_1 .cke_bottom {
-        background-image: linear-gradient(to bottom,var(--color_background_08dp),var(--color_background_08dp));
+        background-image: linear-gradient(to bottom,var(--color_background_2),var(--color_background_2));
         border-color: var(--color_seperator);
         box-shadow: none;
     }
@@ -1009,7 +1051,7 @@
     /* font selector */
     .cke_1.cke_panel {
         border: none;
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
     }
     /* ... hover */
     .cke_1 a.cke_combo_button:hover, .cke_1 a.cke_combo_button:focus, .cke_1 .cke_combo_on a.cke_combo_button {
@@ -1018,7 +1060,7 @@
     }
     /* ... title */
     .cke_panel_grouptitle {
-        background: var(--color_background_00dp);
+        background: var(--color_background_0);
         border-color: var(--color_seperator);
         color: var(--color_text);
         text-shadow: none;
@@ -1053,7 +1095,7 @@
     
     /* file drop zone */
     .ccl-uc-dropzone {
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
     }
     .ccl-uc-dropzone-container:hover .ccl-uc-dropzone {
         background-color: var(--color_overlay_hover);
@@ -1078,7 +1120,7 @@
     }
     /* ... hover */
     .categorybox24 li:hover, .categorybox48 li:hover {
-        background-color: var(--color_background_03dp);
+        background-color: var(--color_background_1);
         border-color: var(--color_seperator);
     }
     /* ,,, title */
@@ -1122,14 +1164,14 @@
     }
     /* ... options items */
     .toolbar .checkbox-selector > div, .checkbox-selector > div {
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
         border: none;
     }
     
     /* Card list */
     /* admins card */
     .ccl-accordion-section {
-        background-color: var(--color_background_03dp);
+        background-color: var(--color_background_1);
         border-color: var(--color_seperator);
     }
     /* card title */
@@ -1138,7 +1180,7 @@
     }
     /* person card */
     .ccl-responsivegrid .cardview .gridrow .gridcolumn {
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
     }
     
     
@@ -1226,15 +1268,15 @@
     
     /* date dialog */
     .itsl-calendar-schedule-dialog.ccl-context-dialog {
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
     }
     /* ... dialog arrow right */
     .itsl-calendar-schedule-dialog.ccl-context-dialog.show-arrow.right > .ccl-context-dialog-arrow::after {
-        border-right-color: var(--color_background_12dp);
+        border-right-color: var(--color_background_3);
     }
     /* ... dialog arrow left */
     .itsl-calendar-schedule-dialog.ccl-context-dialog.show-arrow.left > .ccl-context-dialog-arrow::after {
-        border-left-color: var(--color_background_12dp);
+        border-left-color: var(--color_background_3);
     }
     /* ... title */
     .itsl-calendar-schedule-dialog.ccl-context-dialog .ccl-context-dialog-header h2, .itsl-calendar-schedule-dialog.ccl-context-dialog .ccl-context-dialog-header .itsl-calendar-schedule-dialog-contentarea-selectwrapper > select {
@@ -1279,11 +1321,11 @@
     }
     /* ... scroll shadow top */
     .ccl-context-dialog-content-edge-top::before {
-        background-image: linear-gradient(var(--color_background_12dp),rgba(255,255,255,0));
+        background-image: linear-gradient(var(--color_background_3),rgba(255,255,255,0));
     }
     /* ... scroll shadow bottom */
     .ccl-context-dialog-content-edge-bottom::before {
-        background-image: linear-gradient(rgba(255,255,255,0),var(--color_background_12dp));
+        background-image: linear-gradient(rgba(255,255,255,0),var(--color_background_3));
     }
     
     /* Plans list view heads */
@@ -1317,7 +1359,7 @@
     
     /* date picker */
     .ui-datepicker {
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
     }
     /* ... icon */
     .ccl-datepicker .ui-datepicker-trigger {
@@ -1341,7 +1383,7 @@
     }
     /* ... options */
     .ccl-formpanel select > option {
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
         color: var(--color_text);
     }
     
@@ -1351,7 +1393,7 @@
      *==================== */
     .c-profileCard__window,
     .o-tabcontrol__menu {
-        background-color: var(--color_background_08dp);
+        background-color: var(--color_background_2);
         border-color: var(--color_seperator);
     }
     
@@ -1375,7 +1417,7 @@
     
     /* messages */
     .o-tabcontrol__page.c-profileCard__messagePage {
-        background-color: var(--color_background_08dp);
+        background-color: var(--color_background_2);
         border-color: var(--color_seperator);
     }
     /* collapsed root border */
@@ -1388,7 +1430,7 @@
     }
     /* message area */
     .c-profileCard .c-messages {
-        background: var(--color_background_08dp);
+        background: var(--color_background_2);
     }
     
     
@@ -1400,12 +1442,12 @@
     .c-messages,
     .c-messages.c-modal .sidebar,
     .c-messages__new > .c-messages__body {
-        background-color: var(--color_background_08dp);
+        background-color: var(--color_background_2);
         border-color: var(--color_seperator);
     }
     /* parent background */
     .c-secondary-nav {
-        background-color: var(--color_background_08dp);
+        background-color: var(--color_background_2);
     }
     /* header title */
     .c-messages__header > .c-messages__heading, .c-messages__header > .c-messages__heading-new-message {
@@ -1472,8 +1514,8 @@
     }
     /* ... hover */
     .c-modern__button--cancel:hover:not(:disabled) > span {
-        background-color: var(--color_background_24dp);
-        border-color: var(--color_background_24dp);
+        background-color: var(--color_background_5);
+        border-color: var(--color_background_5);
     }
     
     /* conversation header title */
@@ -1495,7 +1537,7 @@
     
     /* message component */
     .c-conversationcomponent .c-message {
-        background: var(--color_background_08dp);
+        background: var(--color_background_2);
     }
     /* ... hover */
     .c-conversationcomponent .c-message:hover {
@@ -1525,7 +1567,7 @@
     
     /* footer */
     .c-messages__footer {
-        background-color: var(--color_background_08dp);
+        background-color: var(--color_background_2);
         border-color: var(--color_seperator);
     }
     /* message field */
@@ -1549,18 +1591,18 @@
     }
     /* emoji picker */
     .itsl-emojiPicker {
-        background-color: var(--color_background_16dp);
+        background-color: var(--color_background_4);
         border: none;
     }
     /* ... header */
     .itsl-header-emoji-icons {
-        background-color: var(--color_background_16dp);
+        background-color: var(--color_background_4);
         box-shadow: none;
         border-color: var(--color_seperator);
     }
     /* ... arrow */
     .c-conversationcomponent .compose-input-wrapper .itsl-emojiPicker::after {
-        border-color: var(--color_background_16dp);
+        border-color: var(--color_background_4);
     }
     
     /* message search box */
@@ -1578,7 +1620,7 @@
     .selectize-dropdown, .selectize-dropdown.form-control,
     .selectize-dropdown .optgroup-header,
     .c-messages_search > div > .selectize-control > .selectize-dropdown > .selectize-dropdown-content > .optgroup > .optgroup-header > .label {
-        background: var(--color_background_16dp);
+        background: var(--color_background_4);
         color: var(--color_text);
     }
     /* ... hover/active */
@@ -1592,13 +1634,18 @@
         color: var(--color_text_dark);
     }
     
+    /* Blur overlay */
+    .c-messages__overlay.c-messages__overlay--black {
+        backdrop-filter: blur(4px);
+    }
+    
     
     /*====================
      * Notification Dialog
      *==================== */
     /* root box */
     .itsl-notifications-popup-container {
-        background: var(--color_background_12dp);
+        background: var(--color_background_3);
     }
     /* ... title */
     .itsl-notifications-popup-container > h3 {
@@ -1606,7 +1653,7 @@
     }
     /* footer */
     .itsl-notifications-popup-footer-box {
-        background-color: var(--color_background_12dp) !important;
+        background-color: var(--color_background_3) !important;
         border-color: var(--color_seperator);
     }
     
@@ -1669,7 +1716,7 @@
     }
     /* show all dropdown menu */
     .ccl-context-dialog {
-        background-color: var(--color_background_06dp);
+        background-color: var(--color_background_2);
     }
     /* list item hover */
     .itsl-play-plan-dialog-container .itsl-play-plan-index-list .itsl-play-plan-index-item:hover {
@@ -1696,7 +1743,7 @@
     /*----------
      * Task resource */
     .itsl-play-plan-dialog-container .itsl-play-plan-dialog-content {
-        background-color: var(--color_background_00dp);
+        background-color: var(--color_background_0);
     }
     /* task card */
     .h-box {
@@ -1709,7 +1756,7 @@
     }
     /* ... file card */
     .ccl-fl-item {
-        background-color: var(--color_background_03dp);
+        background-color: var(--color_background_1);
         border-color: var(--color_seperator);
     }
     .ccl-fl-item:hover {
@@ -1728,7 +1775,7 @@
     /* ... context menu */
     .ccl-fl-context-menu-dialog,
     .ccl-fl-context-menu-dialog-content-item {
-        background-color: var(--color_background_12dp);
+        background-color: var(--color_background_3);
         border-color: var(--color_seperator);
         color: var(--color_text);
     }
@@ -1740,7 +1787,7 @@
     .itsl-lte-settings-wrapper,
     .itsl-lte-view-summary .itsl-lte-settings-overlay-dialog-footer, .itsl-lte-view-overlayread .itsl-lte-settings-overlay-dialog-footer, .itsl-lte-view-overlayedit .itsl-lte-settings-overlay-dialog-footer,
     .itsl-lte-settings {
-        background-color: var(--color_background_00dp);
+        background-color: var(--color_background_0);
         border-color: var(--color_seperator) !important;
     }
     .itsl-lte-view-overlayedit .itsl-lte-settings-overlay-dialog-footer-button-container, .itsl-lte-view-overlayread .itsl-lte-settings-overlay-dialog-footer-button-container {
@@ -1784,7 +1831,7 @@
      * Auto Logout dialog
      *==================== */
     .itsl-autologout-container .prom-modal__dialog {
-        background: var(--color_background_12dp);
+        background: var(--color_background_3);
     }
     /* ... title */
     .itsl-autologout-container .prom-modal__heading {

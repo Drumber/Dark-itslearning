@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.3.0
+@version        0.4.0
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -9,6 +9,35 @@
 @advanced color accent-color "Accent color" #bfbfbf
 @advanced color link-color "Link color" #2895ff
 @advanced color focus-color "Focus color" #044380
+@advanced dropdown background "Background" {
+    default "Default" <<<EOT
+    var(--color_background_0) EOT;
+    custom "Custom" <<<EOT
+    var(--custom-bg) EOT;
+}
+@advanced text custom-bg-url "Custom URL" "https://images.unsplash.com/photo-1475070929565-c985b496cb9f?w=1920"
+// Random Image: https://source.unsplash.com/random/1920x1080/?dark,mountain,wallpaper
+@advanced dropdown background-style "Background Style" {
+    default "Default" <<<EOT
+    --color_background_dialog: var(--color_background_2);
+    --color_background_header: var(--color_background_3);
+    --color_background_header_course: var(--color_background_2);
+    --color_background_dropdown: var(--color_background_2);
+    --color_button: var(--color_background_2);
+    --color_button_active: var(--color_background_3);
+    --color_button_hover: var(--color_background_4);
+    --color_card: var(--color_background_dark); EOT;
+    translucent "Translucent" <<<EOT
+    text-shadow: 0px 0px 1px rgba(0,0,0,0.75);
+    --color_background_dialog: var(--translucent-4);
+    --color_background_header: var(--translucent-2);
+    --color_background_header_course: var(--translucent-3);
+    --color_background_dropdown: var(--translucent-5);
+    --color_button: var(--translucent-2);
+    --color_button_active: var(--translucent-4);
+    --color_button_hover: var(--translucent-5);
+    --color_card: var(--translucent_card); EOT;
+}
 @advanced dropdown dim-cards "Dim event/course cards" {
   enable "Enable" <<<EOT
   brightness(70%) contrast(150%) EOT;
@@ -42,8 +71,14 @@
      * Colors
      *==================== */
     :root {
+        color-scheme: dark;
+        
         --color_black: #000000;
         /*[[theme]]*/
+        /*[[background-style]]*/
+        
+        --custom-bg: url("/*[[custom-bg-url]]*/");
+        --background: /*[[background]]*/;
         
         --color_text: #ffffff;
         --color_text_dark: #dcdcdc;
@@ -56,20 +91,51 @@
         --color_overlay_hover: var(--color_overlay);
         --color_overlay_info: rgba(40, 149, 255, 0.1);
         
-        --color_background_header: var(--color_background_3);
-        --color_background_header_course: var(--color_background_2);
-        --color_background_dropdown: var(--color_background_2);
-        
-        --color_button: var(--color_background_2);
-        --color_button_active: var(--color_background_3);
-        --color_card: var(--color_background_1);
         --color_input_box: rgba(255, 255, 255, 0.1);
+        
+        --backdrop_filter: blur(2px);
+        --card_backdrop_filter: var(--backdrop_filter);
+        --header_backdrop_filter: var(--backdrop_filter);
+        
+        --translucent_card: rgba(0, 0, 0, 0.6);
+        --translucent-1: rgba(0, 0, 0, 0.5);
+        --translucent-2: rgba(0, 0, 0, 0.65);
+        --translucent-3: rgba(0, 0, 0, 0.7);
+        --translucent-4: rgba(0, 0, 0, 0.8);
+        --translucent-5: rgba(0, 0, 0, 0.9);
     }
+    
+    
+    /*====================
+     * Background
+     *==================== */
+    html {
+        background-color: var(--color_background_1);
+    }
+    body, html {
+        background-color: transparent !important;
+    }
+    .l-topmenu, .itsl-login {
+        background: var(--background) !important;
+        background-color: var(--color_background_1) !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-attachment: fixed !important;
+        color: var(--color_text);
+    }
+    .itsl-homepagetabs-wrapper, .itsl-updatestab-wrapper, .coursecards {
+        background: transparent;
+    }
+    
     
     
     /*====================
      * General elements
      *==================== */
+    body {
+        color: var(--color_text);
+    }
+    
     a, a:active, a:focus, a:hover, a:link, a:visited,
     .h-color-link-default {
         color: var(--color_anchor);
@@ -134,6 +200,7 @@
     /* form table */
     .itsl-formbox {
         background: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
         box-shadow: none;
     }
@@ -147,6 +214,7 @@
     /* feedback header */
     .ccl-feedback-functionality {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         color: var(--color_text_dark);
     }
     /* .. icon */
@@ -198,17 +266,31 @@
         color: var(--color_text);
     }
     
+    /* iframe container for link preview */
+    .iframe-container {
+        background: rgba(255, 255, 255, 0.192);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(43, 43, 43, 0.1);
+    }
+    
     
     /*====================
      * Common Dropdown menu
      *==================== */
     /* Dropdown menus */
     .ccl-dropdownmenu,
-    .c-dropdownMenu__all,
-    .c-dropdownMenu__navigation .c-dropdown,
-    .c-dropdownMenu__navigation {
+    .c-dropdownMenu__all {
         background-color: var(--color_background_dropdown);
         border-color: var(--color_seperator);
+    }
+    .c-dropdownMenu__navigation {
+        background-color: transparent;
+        border-color: var(--color_seperator);
+    }
+    .c-dropdownMenu__content ul > li,
+    .c-dropdownMenu__navigation .c-dropdown {
+        background: transparent;
     }
     /* dropdown arrow */
     .ccl-context-dialog.bottom > .ccl-context-dialog-arrow::after {
@@ -262,6 +344,7 @@
      *==================== */
     .itsl-login .itsl-widget, .itsl-welcome .itsl-widget {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
     }
     
@@ -287,21 +370,13 @@
     /*====================
      * Main page (Aktuelles)
      *==================== */
-    body,
-    .itsl-homepagetabs-wrapper,
-    .itsl-updatestab-wrapper,
-    .coursecards {
-        background: var(--color_background_0) !important;
-        color: var(--color_text);
-    }
-    
     /* Header buttons (Kurse & Updates) */
     .itsl-homepagetabs-tab > span {
         background-color: var(--color_button);
         border: none;
     }
     .itsl-homepagetabs-tab:not(.active):hover > span {
-        background-color: var(--color_background_5);
+        background-color: var(--color_button_hover);
     }
     /* ... focus */
     .itsl-homepagetabs-tab:focus {
@@ -309,7 +384,7 @@
     }
     /* active header button */
     .itsl-homepagetabs-tab.active > span, .itsl-homepagetabs-tab:active > span {
-        background-color: var(--color_background_3);
+        background-color: var(--color_button_active);
         color: var(--color_text);
     }
     
@@ -333,6 +408,7 @@
     /* Updates Cards */
     body:not(.l-group-dashboard) .il-widget.itsl-cb-news .itsl-widget-content-ul > li, .il-widget.itsl-cb-stream .itsl-widget-content-ul > li {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none !important;
     }
     /* 'show more' shadow */
@@ -344,6 +420,7 @@
     /* Updates tasks (Aufgaben) card */
     .itsl-homepagetabs .il-widget.itsl-cb-tasks2 .tasklist2_container {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     .tasklist__emptystate {
         color: var(--color_text);
@@ -353,6 +430,7 @@
     .itsl-updatestab-wrapper .itsl-cb-activities .itsl-widget-toolbar,
     .itsl-updatestab-wrapper .il-widgetzone-wideleft-right .il-widget-bottom {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         color: var(--color_text);
     }
     /* events timestamps */
@@ -425,10 +503,23 @@
     /*====================
      * Header (nav bar)
      *==================== */
+    /* Primary navbar */
+    #l-header {
+        background-color: var(--color_background_header);
+        backdrop-filter: var(--header_backdrop_filter);
+        z-index: 10;
+    }
+    
+    /* Secondary navbar (courses) */
+    .l-main-content-header {
+        background-color: var(--color_background_header_course);
+        backdrop-filter: var(--header_backdrop_filter);
+    }
+    
     nav.l-main-menu ul, nav.l-personal-menu,
     nav.l-main-menu li.active a:not(.ccl-button):visited,
     nav.l-main-menu li.active a:not(.ccl-button):link {
-        background-color: var(--color_background_header);
+        background-color: transparent;
     }
     /* header hover color */
     ul.l-main-menu-items > li > a:hover, ul.l-more-menu > li > button:hover,
@@ -439,7 +530,7 @@
     /* dropdown list item */
     .l-menu-course .ccl-dropdownmenu > div > ul > li,
     .l-menu-project .ccl-dropdownmenu > div > ul > li {
-        background-color: var(--color_background_dropdown);
+        background-color: transparent;
     }
     .l-menu-course .ccl-dropdownmenu > div > ul > li:hover,
     .l-menu-project .ccl-dropdownmenu > div > ul > li:hover {
@@ -526,6 +617,7 @@
      *==================== */
     .l-modern-ui-dashboard.l-group-dashboard .il-widget {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
     }
     
@@ -546,9 +638,12 @@
     
     /* Table */
     .tablelisting,
-    .tablelisting table,
     .tablelisting table > tbody > tr > th {
         background: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
+    }
+    .tablelisting table {
+        background: transparent;
     }
     /* table row hover */
     .tablelisting table tr:not(.assessment-record-table-nohover-background table tr):hover {
@@ -561,6 +656,7 @@
     /* head backgrounds */
     .tablelisting table > tbody > tr > th {
         background: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     /* head backgrounds hover & active */
     .tablelisting table th.th-sortable:hover, .tablelisting table th.th-sortable:hover a, .tablelisting table th.th-sortable:hover a:active, .tablelisting table th.th-sortable:hover a:focus, .tablelisting table th.th-sortable:hover a:hover, .tablelisting table th.th-sortable:hover a:link, .tablelisting table th.th-sortable:hover a:visited, .tablelisting table th.th-selected, .tablelisting table th.th-selected:hover, .tablelisting table th.th-selected:hover a, .tablelisting table th.th-selected:hover a:active, .tablelisting table th.th-selected:hover a:focus, .tablelisting table th.th-selected:hover a:hover, .tablelisting table th.th-selected:hover a:link, .tablelisting table th.th-selected:hover a:visited {
@@ -581,9 +677,6 @@
      * Course page
      *==================== */
     /* course header (nav bar) */
-    .l-main-content-header {
-        background-color: var(--color_background_header_course);
-    }
     /* ... course name */
     .l-main-content-heading {
         color: var(--color_text_accent);
@@ -658,6 +751,7 @@
     .tasklist2__task {
         background-color: var(--color_card);
         border-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     .tasklist2__taskitem:hover .tasklist2__task {
         border-color: var(--color_seperator);
@@ -687,6 +781,7 @@
     /* Notification write card */
     body:not(.l-group-dashboard) .il-widget.itsl-cb-news .itsl-widget-content-ul > li.itsl-light-bulletins-new-item-listitem, .il-widget.itsl-cb-stream .itsl-widget-content-ul > li.itsl-light-bulletins-new-item-listitem {
         background: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     /* text area */
     .ccl-text-input > textarea, .ccl-text-input > input[type="text"] {
@@ -719,6 +814,7 @@
     /* Last changes cards */
     body:not(.l-group-dashboard) .itsl-cb-news .itsl-widget-content-ul > li, .itsl-cb-stream .itsl-widget-content-ul > li, .l-modern-ui-dashboard .itsl-cb-notifications .itsl-widget-content-ul > li {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
     }
     /* ... timestamp */
@@ -729,6 +825,7 @@
     /* active plan card */
     .itsl-cb-planner > .il-widget-bottom {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none !important;
         
     }
@@ -770,6 +867,7 @@
     .itsl-widget-pager,
     .ccl-button-plain {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     
     /* ----------
@@ -777,11 +875,13 @@
     /* plans card */
     .itsl-planner .itsl-topic .itsl-topic-content-container {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
     }
     /* ... lower card part */
     .itsl-planner .itsl-topic .itsl-topic-plans {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
     }
     /* .. seperator */
@@ -824,6 +924,7 @@
     /* search result card */
     .ccl-responsivegrid .emptygridtext, .ccl-responsivegrid .gridtext {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
     }
     /* ... text color */
@@ -859,6 +960,7 @@
     /* plan table cell background */
     .itsl-planner .ccl-responsivegrid .tableview .gridcolumn {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border-color: var(--color_seperator);
     }
     /* resource text color */
@@ -873,6 +975,7 @@
     /* LIST */
     .ccl-responsivegrid .defaultview .gridrow {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     /* border color */
     .itsl-planner .ccl-responsivegrid .defaultview .gridrow {
@@ -896,8 +999,11 @@
     /* ----------
      * Resources page */
     /* side menu */
+    .l-main-sidebar {
+        background-color: var(--color_card);
+    }
     .treemenu-viewport {
-        background-color: var(--color_background_1);
+        background: transparent;
         border: none;
     }
     /* side menu text color */
@@ -952,6 +1058,7 @@
     /* table head cell */
     .ccl-grid th {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         color: var(--color_text);
     }
     /* ... hover */
@@ -965,6 +1072,7 @@
     /* table body cell */
     .ccl-grid .gridtable tbody tr {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     /* ... hover */
     .ccl-grid .gridtable tbody tr:hover, .ccl-grid .gridtable tbody tr.selectedrow {
@@ -1106,6 +1214,7 @@
     /* Nacharbeiten card */
     .categorybox {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
     }
     /* ... border top */
@@ -1116,6 +1225,7 @@
     /* action card */
     .categorybox24 li, .categorybox48 li {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border-color: var(--color_card);
     }
     /* ... hover */
@@ -1134,6 +1244,7 @@
     .tabsframe,
     .ccl-pagetabs .active, .ccl-pagetabs li.active a:hover {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
         border: none !important;
         box-shadow: none;
     }
@@ -1256,6 +1367,7 @@
     .fc-view thead,
     .fc .fc-week-number {
         background-color: var(--color_card);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     /* ... border color */
     .fc-widget-header, .fc-widget-content {
@@ -1439,15 +1551,16 @@
      *==================== */
     /* header */
     .c-messages__header,
-    .c-messages,
     .c-messages.c-modal .sidebar,
     .c-messages__new > .c-messages__body {
-        background-color: var(--color_background_2);
+        background-color: transparent;
         border-color: var(--color_seperator);
     }
     /* parent background */
-    .c-secondary-nav {
-        background-color: var(--color_background_2);
+    .c-secondary-nav,
+    .c-messages {
+        background-color: var(--color_background_dialog);
+        backdrop-filter: var(--card_backdrop_filter);
     }
     /* header title */
     .c-messages__header > .c-messages__heading, .c-messages__header > .c-messages__heading-new-message {
@@ -1537,7 +1650,7 @@
     
     /* message component */
     .c-conversationcomponent .c-message {
-        background: var(--color_background_2);
+        background: transparent;
     }
     /* ... hover */
     .c-conversationcomponent .c-message:hover {
@@ -1567,7 +1680,7 @@
     
     /* footer */
     .c-messages__footer {
-        background-color: var(--color_background_2);
+        background-color: transparent;
         border-color: var(--color_seperator);
     }
     /* message field */
@@ -1645,7 +1758,7 @@
      *==================== */
     /* root box */
     .itsl-notifications-popup-container {
-        background: var(--color_background_3);
+        background: transparent;
     }
     /* ... title */
     .itsl-notifications-popup-container > h3 {
@@ -1653,7 +1766,7 @@
     }
     /* footer */
     .itsl-notifications-popup-footer-box {
-        background-color: var(--color_background_3) !important;
+        background-color: transparent !important;
         border-color: var(--color_seperator);
     }
     
@@ -1703,6 +1816,10 @@
     /*====================
      * Resource view page
      *==================== */
+    /* main container */
+    .itsl-play-plan-dialog-container {
+        background: transparent;
+    }
     /* header */
     .itsl-play-plan-dialog-container .itsl-play-plan-dialog-header,
     .itsl-play-plan-dialog-container .itsl-play-plan-dialog-header .itsl-play-plan-dialog-navigation-container {
@@ -1716,7 +1833,7 @@
     }
     /* show all dropdown menu */
     .ccl-context-dialog {
-        background-color: var(--color_background_2);
+        background-color: var(--color_background_dialog);
     }
     /* list item hover */
     .itsl-play-plan-dialog-container .itsl-play-plan-index-list .itsl-play-plan-index-item:hover {
@@ -1742,12 +1859,13 @@
     
     /*----------
      * Task resource */
-    .itsl-play-plan-dialog-container .itsl-play-plan-dialog-content {
-        background-color: var(--color_background_0);
+    .itsl-play-plan-dialog-container {
+        background: var(--background);
     }
     /* task card */
     .h-box {
         background-color: var(--color_card) !important;
+        backdrop-filter: var(--card_backdrop_filter);
         border: none;
     }
     /* ... title */

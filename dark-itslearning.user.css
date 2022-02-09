@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.4.1
+@version        0.4.2
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -1855,11 +1855,31 @@
     }
     
     /* remove empty space */
-    .ccl-pageheader {
+    .ccl-pageheader,
+    #ctl00_ctl00_MainFormContent_DescriptionSection {
         margin: 0;
     }
     header .h-mrb10 {
         margin: 0 !important;
+    }
+    #ctl00_PageBody {
+        margin-top: 0;
+    }
+    #ctl00_ctl00_MainBody > form {
+        padding-top: 0;
+    }
+    section.file-link-actions {
+        padding-bottom: 2px;
+    }
+    
+    /* reduce filename size */
+    .ccl-pageheader.ccl-pageheader-lte img {
+        width: 16px !important;
+        height: 16px !important;
+    }
+    .ccl-pageheader.ccl-pageheader-lte {
+        font-size: 1.0em;
+        line-height: 1.0em;
     }
     
     /*----------

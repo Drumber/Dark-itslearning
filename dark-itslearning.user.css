@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Dark itslearning
 @namespace      github.com/Drumber/Dark-itslearning
-@version        0.4.2
+@version        0.5.0
 @description    Dark theme for itslearning
 @author         Drumber
 @homepageURL    https://github.com/Drumber/Dark-itslearning
@@ -38,6 +38,7 @@
     --color_button_hover: var(--translucent-5);
     --color_card: var(--translucent_card); EOT;
 }
+@advanced color translucent-color "Translucent Background Color" rgba(0,0,0,0.6)
 @advanced dropdown dim-cards "Dim event/course cards" {
   enable "Enable" <<<EOT
   brightness(70%) contrast(150%) EOT;
@@ -97,7 +98,7 @@
         --card_backdrop_filter: var(--backdrop_filter);
         --header_backdrop_filter: var(--backdrop_filter);
         
-        --translucent_card: rgba(0, 0, 0, 0.6);
+        --translucent_card: /*[[translucent-color]]*/;
         --translucent-1: rgba(0, 0, 0, 0.5);
         --translucent-2: rgba(0, 0, 0, 0.65);
         --translucent-3: rgba(0, 0, 0, 0.7);
